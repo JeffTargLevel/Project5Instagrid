@@ -58,7 +58,7 @@
 		62D9EB9920E2314500D47EF1 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				62D9EBAC20E231A700D47EF1 /* Supporting Files */,
+				62D9EBAC20E231A700D47EF1 /* SupportingFiles */,
 				62D9EBAF20E2322500D47EF1 /* Model */,
 				62D9EBB020E2324400D47EF1 /* View */,
 				62D9EBB120E2325100D47EF1 /* Controller */,
@@ -66,7 +66,7 @@
 			path = Instagrid;
 			sourceTree = "<group>";
 		};
-		62D9EBAC20E231A700D47EF1 /* Supporting Files */ = {
+		62D9EBAC20E231A700D47EF1 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				62D9EB9A20E2314500D47EF1 /* AppDelegate.swift */,
@@ -76,7 +76,7 @@
 				62D9EBA320E2314600D47EF1 /* LaunchScreen.storyboard */,
 				62D9EBA620E2314600D47EF1 /* Info.plist */,
 			);
-			path = "Supporting Files";
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		62D9EBAF20E2322500D47EF1 /* Model */ = {
