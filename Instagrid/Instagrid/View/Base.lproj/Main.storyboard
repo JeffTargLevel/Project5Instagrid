@@ -58,7 +58,7 @@
                                             <constraint firstAttribute="height" constant="140" id="Cgo-go-NMb"/>
                                             <constraint firstAttribute="width" constant="140" id="bYq-pc-fZf"/>
                                         </constraints>
-                                        <state key="normal" image="Add Photo Portrait">
+                                        <state key="normal" image="AddPhotoPortrait">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -70,7 +70,7 @@
                                             <constraint firstAttribute="width" constant="140" id="gpm-HV-BM6"/>
                                             <constraint firstAttribute="height" constant="140" id="qad-YU-CdY"/>
                                         </constraints>
-                                        <state key="normal" image="Add Photo Portrait">
+                                        <state key="normal" image="AddPhotoPortrait">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
@@ -81,7 +81,7 @@
                                             <constraint firstAttribute="width" constant="286" id="0Y8-px-YVH"/>
                                             <constraint firstAttribute="height" constant="140" id="Wrf-t6-qGz"/>
                                         </constraints>
-                                        <state key="normal" image="Add Photo Portrait">
+                                        <state key="normal" image="AddPhotoPortrait">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
@@ -107,15 +107,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <state key="normal" backgroundImage="Layout 1"/>
+                                        <state key="normal" image="Layout1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-Nr-Zap" userLabel="Button Select View 2">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
-                                        <state key="normal" backgroundImage="Layout 2"/>
+                                        <state key="normal" image="Layout2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-Ih-sL1" userLabel="Button Select View 3">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
-                                        <state key="normal" backgroundImage="Layout 3"/>
+                                        <state key="normal" image="Layout3"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -149,9 +149,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add Photo Portrait" width="48" height="49"/>
-        <image name="Layout 1" width="80" height="80"/>
-        <image name="Layout 2" width="80" height="80"/>
-        <image name="Layout 3" width="80" height="80"/>
+        <image name="AddPhotoPortrait" width="48" height="49"/>
+        <image name="Layout1" width="80" height="80"/>
+        <image name="Layout2" width="80" height="80"/>
+        <image name="Layout3" width="80" height="80"/>
     </resources>
 </document>
