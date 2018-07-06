@@ -21,13 +21,11 @@ class CustomImagesView: UIView {
         case layoutCenterLeftRight, layoutLeftRightCenter, layoutTwoLeftRight
     }
     
-    var styleLayoutStandard: StyleLayout = .layoutLeftRightCenter {
-        didSet {
-            setStyleLayout(styleLayoutStandard)
-        }
+    func styleLayoutStandard() {
+        setStyleLayout(.layoutLeftRightCenter)
     }
     
-    public func setStyleLayout(_ styleLayout: StyleLayout) {
+    func setStyleLayout(_ styleLayout: StyleLayout) {
         switch styleLayout {
         case .layoutCenterLeftRight:
             backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
@@ -56,5 +54,22 @@ class CustomImagesView: UIView {
         
         }
     }
-
+    
+    func setColorAddPhotoButtonInModePortrait() {
+        addPhotoCenterTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+        addPhotoLeftLawsButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+        addPhotoRightLawsButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+        addPhotoLeftTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+        addPhotoRightTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+        addPhotoCenterLowsButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+    }
+    
+    func setColorAddPhotoButtonInModeLandscape() {
+        addPhotoCenterTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+        addPhotoLeftLawsButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+        addPhotoRightLawsButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+        addPhotoLeftTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+        addPhotoRightTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+        addPhotoCenterLowsButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+    }
 }
