@@ -21,7 +21,13 @@ class CustomImagesView: UIView {
         case layoutCenterLeftRight, layoutLeftRightCenter, layoutTwoLeftRight
     }
     
-    private func setStyleLayout(styleLayout: StyleLayout) {
+    var styleLayoutStandard: StyleLayout = .layoutLeftRightCenter {
+        didSet {
+            setStyleLayout(styleLayoutStandard)
+        }
+    }
+    
+    public func setStyleLayout(_ styleLayout: StyleLayout) {
         switch styleLayout {
         case .layoutCenterLeftRight:
             backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
@@ -31,8 +37,23 @@ class CustomImagesView: UIView {
             addPhotoLeftTopButton.isHidden = true
             addPhotoRightTopButton.isHidden = true
             addPhotoCenterLowsButton.isHidden = true
-        default:
-            <#code#>
+        case .layoutLeftRightCenter:
+            backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
+            addPhotoLeftTopButton.isHidden = false
+            addPhotoRightTopButton.isHidden = false
+            addPhotoCenterLowsButton.isHidden = false
+            addPhotoCenterTopButton.isHidden = true
+            addPhotoLeftLawsButton.isHidden = true
+            addPhotoRightLawsButton.isHidden = true
+        case .layoutTwoLeftRight:
+            backgroundColor = #colorLiteral(red: 0.06274509804, green: 0.4, blue: 0.5960784314, alpha: 1)
+            addPhotoLeftTopButton.isHidden = false
+            addPhotoRightTopButton.isHidden = false
+            addPhotoLeftLawsButton.isHidden = false
+            addPhotoRightLawsButton.isHidden = false
+            addPhotoCenterTopButton.isHidden = true
+            addPhotoCenterLowsButton.isHidden = true
+        
         }
     }
 

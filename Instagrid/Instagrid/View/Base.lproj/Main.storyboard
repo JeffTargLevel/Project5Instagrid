@@ -79,14 +79,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout1"/>
+                                        <connections>
+                                            <action selector="didTapSelectViewCenterLeftRightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-Nr-Zap" userLabel="Button Select View 2">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout2"/>
+                                        <connections>
+                                            <action selector="didTapSelectViewLeftRightCenterButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-Ih-sL1" userLabel="Button Select View 3">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout3"/>
+                                        <connections>
+                                            <action selector="didTapSelectViewTwoLeftRightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -110,7 +119,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-zC-Qxk" userLabel="Button Add Photo Center Top">
                                         <rect key="frame" x="8" y="8" width="286" height="140"/>
-                                        <color key="backgroundColor" red="0.9947709441" green="0.092489719479999996" blue="0.19213632880000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="5cw-VC-S5e"/>
                                             <constraint firstAttribute="width" constant="286" id="QcU-YR-bzR">
@@ -571,6 +580,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="customImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
+                        <outlet property="selectViewCenterLeftRightButton" destination="03T-Tq-ngc" id="K7V-Le-FiV"/>
+                        <outlet property="selectViewLeftRightCenterButton" destination="dyE-Nr-Zap" id="H1S-cO-71e"/>
+                        <outlet property="selectViewTwoLeftRightButton" destination="Mch-Ih-sL1" id="xOq-aT-mVa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
