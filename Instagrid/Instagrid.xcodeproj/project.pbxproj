@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		621FDF3320EE7CC80077F46B /* CustomImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621FDF3220EE7CC80077F46B /* CustomImagesView.swift */; };
+		621FDF3320EE7CC80077F46B /* GridImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621FDF3220EE7CC80077F46B /* GridImagesView.swift */; };
+		629BBAF620F355D6008D106E /* PhotoManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629BBAF520F355D6008D106E /* PhotoManagement.swift */; };
 		62D9EB9B20E2314500D47EF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EB9A20E2314500D47EF1 /* AppDelegate.swift */; };
 		62D9EB9D20E2314500D47EF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EB9C20E2314500D47EF1 /* ViewController.swift */; };
 		62D9EBA020E2314500D47EF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D9EB9E20E2314500D47EF1 /* Main.storyboard */; };
@@ -18,7 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		621FDF3220EE7CC80077F46B /* CustomImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImagesView.swift; sourceTree = "<group>"; };
+		621FDF3220EE7CC80077F46B /* GridImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImagesView.swift; sourceTree = "<group>"; };
+		629BBAF520F355D6008D106E /* PhotoManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagement.swift; sourceTree = "<group>"; };
 		62D9EB9720E2314500D47EF1 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D9EB9A20E2314500D47EF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62D9EB9C20E2314500D47EF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		62D9EBAF20E2322500D47EF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				629BBAF520F355D6008D106E /* PhotoManagement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				62D9EB9E20E2314500D47EF1 /* Main.storyboard */,
-				621FDF3220EE7CC80077F46B /* CustomImagesView.swift */,
+				621FDF3220EE7CC80077F46B /* GridImagesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,7 +183,8 @@
 			files = (
 				62D9EB9D20E2314500D47EF1 /* ViewController.swift in Sources */,
 				62D9EB9B20E2314500D47EF1 /* AppDelegate.swift in Sources */,
-				621FDF3320EE7CC80077F46B /* CustomImagesView.swift in Sources */,
+				621FDF3320EE7CC80077F46B /* GridImagesView.swift in Sources */,
+				629BBAF620F355D6008D106E /* PhotoManagement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,58 +9,52 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var customImagesView: CustomImagesView!
-    @IBOutlet weak var selectViewCenterLeftRightButton: UIButton!
-    @IBOutlet weak var selectViewLeftRightCenterButton: UIButton!
-    @IBOutlet weak var selectViewTwoLeftRightButton: UIButton!
+    
+    @IBOutlet weak var gridImagesView: GridImagesView!
+    @IBOutlet weak var selectionGridImagesCenterTopLeftBottomRightBottomButton: UIButton!
+    @IBOutlet weak var selectionGridImagesLeftTopRightTopCenterBottomButton: UIButton!
+    @IBOutlet weak var selectionGridImagesLeftRightTopAndLeftRightBottomButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        startAppli()
+        showAtStartup()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func startAppli() {
-        customImagesView.styleLayoutStandard()
-        selectViewLeftRightCenterButton.setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
+    func showAtStartup() {
+        gridImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
+        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = true
     }
     
     @IBAction func didTapSelectViewCenterLeftRightButton() {
-        customImagesView.setStyleLayout(.layoutCenterLeftRight)
-        selectViewCenterLeftRightButton.setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
-        selectViewLeftRightCenterButton.setImage(#imageLiteral(resourceName: "Layout2"), for: .normal)
-        selectViewTwoLeftRightButton.setImage(#imageLiteral(resourceName: "Layout3"), for: .normal)
+        gridImagesView.setLayout(.centerTopLeftBottomRightBottom)
+        selectionGridImagesCenterTopLeftBottomRightBottomButton.isSelected = true
+        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = false
+        selectionGridImagesLeftRightTopAndLeftRightBottomButton.isSelected = false
         
     }
     
     @IBAction func didTapSelectViewLeftRightCenterButton() {
-        customImagesView.setStyleLayout(.layoutLeftRightCenter)
-        selectViewLeftRightCenterButton.setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
-        selectViewTwoLeftRightButton.setImage(#imageLiteral(resourceName: "Layout3"), for: .normal)
-        selectViewCenterLeftRightButton.setImage(#imageLiteral(resourceName: "Layout1"), for: .normal)
+        gridImagesView.setLayout(.leftTopRightTopCenterBottom)
+        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = true
+        selectionGridImagesLeftRightTopAndLeftRightBottomButton.isSelected = false
+        selectionGridImagesCenterTopLeftBottomRightBottomButton.isSelected = false
     }
     
     @IBAction func didTapSelectViewTwoLeftRightButton() {
-        customImagesView.setStyleLayout(.layoutTwoLeftRight)
-        selectViewTwoLeftRightButton.setImage(#imageLiteral(resourceName: "Selected"), for: .normal)
-        selectViewCenterLeftRightButton.setImage(#imageLiteral(resourceName: "Layout1"), for: .normal)
-        selectViewLeftRightCenterButton.setImage(#imageLiteral(resourceName: "Layout2"), for: .normal)
-        
+        gridImagesView.setLayout(.leftRightTopAndleftRightBottom)
+        selectionGridImagesLeftRightTopAndLeftRightBottomButton.isSelected = true
+        selectionGridImagesCenterTopLeftBottomRightBottomButton.isSelected = false
+        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = false
     }
     
     @objc func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            customImagesView.setColorAddPhotoButtonInModeLandscape()
+            gridImagesView.setColorAddPhotoButtonInModeLandscape()
         }
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            customImagesView.setColorAddPhotoButtonInModePortrait()
+            gridImagesView.setColorAddPhotoButtonInModePortrait()
         }
     }
 }

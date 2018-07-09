@@ -79,6 +79,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout1"/>
+                                        <state key="selected" image="Selected" backgroundImage="Layout1"/>
                                         <connections>
                                             <action selector="didTapSelectViewCenterLeftRightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
                                         </connections>
@@ -86,6 +87,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-Nr-Zap" userLabel="Button Select View 2">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout2"/>
+                                        <state key="selected" image="Selected" backgroundImage="Layout2"/>
                                         <connections>
                                             <action selector="didTapSelectViewLeftRightCenterButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
                                         </connections>
@@ -93,6 +95,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-Ih-sL1" userLabel="Button Select View 3">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout3"/>
+                                        <state key="selected" image="Selected" backgroundImage="Layout3"/>
                                         <connections>
                                             <action selector="didTapSelectViewTwoLeftRightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
                                         </connections>
@@ -114,7 +117,7 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" spacing="150"/>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="CustomImagesView" customModule="Instagrid" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="GridImagesView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="36.5" y="182.5" width="302" height="302"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-zC-Qxk" userLabel="Button Add Photo Center Top">
@@ -421,18 +424,17 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="addPhotoCenterLowsButton" destination="vCW-Mv-RWu" id="IJd-7d-o7K"/>
+                                    <outlet property="addPhotoCenterBottomButton" destination="vCW-Mv-RWu" id="IJd-7d-o7K"/>
                                     <outlet property="addPhotoCenterTopButton" destination="mDr-zC-Qxk" id="e3S-od-KyN"/>
-                                    <outlet property="addPhotoLeftLawsButton" destination="fQT-dH-RCf" id="kKg-8h-N1G"/>
+                                    <outlet property="addPhotoLeftBottomButton" destination="fQT-dH-RCf" id="kKg-8h-N1G"/>
                                     <outlet property="addPhotoLeftTopButton" destination="FUp-zN-bh4" id="qMW-ZJ-fEN"/>
-                                    <outlet property="addPhotoRightLawsButton" destination="iq2-1h-prV" id="A7X-qF-p4y"/>
+                                    <outlet property="addPhotoRightBottomButton" destination="iq2-1h-prV" id="A7X-qF-p4y"/>
                                     <outlet property="addPhotoRightTopButton" destination="g1Y-Kc-YqC" id="gxG-K9-HWK"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇦ Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K24-ug-ALY">
-                                <rect key="frame" x="49.5" y="139" width="128" height="97"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇦ Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K24-ug-ALY">
+                                <rect key="frame" x="5" y="139" width="172.5" height="97"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="78p-ZY-83v"/>
                                     <constraint firstAttribute="height" constant="97" id="B7o-Xc-Rgx"/>
                                     <constraint firstAttribute="width" secondItem="K24-ug-ALY" secondAttribute="height" multiplier="149:86" id="DVm-yq-nE5"/>
                                     <constraint firstAttribute="width" secondItem="K24-ug-ALY" secondAttribute="height" multiplier="149:86" id="d0C-vr-mkX"/>
@@ -442,7 +444,6 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="78p-ZY-83v"/>
                                         <exclude reference="B7o-Xc-Rgx"/>
                                         <exclude reference="DVm-yq-nE5"/>
                                         <exclude reference="d0C-vr-mkX"/>
@@ -450,7 +451,6 @@
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
-                                        <include reference="78p-ZY-83v"/>
                                         <include reference="B7o-Xc-Rgx"/>
                                         <exclude reference="DVm-yq-nE5"/>
                                         <exclude reference="d0C-vr-mkX"/>
@@ -481,6 +481,7 @@
                             <constraint firstItem="4jv-pk-IPH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="asI-v2-5O2"/>
                             <constraint firstItem="4jv-pk-IPH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bGt-gD-MZ2"/>
                             <constraint firstItem="7AU-58-lcT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="254" id="bx6-ST-bMn"/>
+                            <constraint firstItem="K24-ug-ALY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="c4t-o3-M7s"/>
                             <constraint firstItem="ofG-Wc-Ldo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dkx-Cb-wCO"/>
                             <constraint firstItem="4jv-pk-IPH" firstAttribute="top" secondItem="ofG-Wc-Ldo" secondAttribute="bottom" constant="1.5" id="eXz-qX-uJo"/>
                             <constraint firstItem="ofG-Wc-Ldo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="egA-Aa-erp"/>
@@ -503,19 +504,18 @@
                                 <exclude reference="K24-ug-ALY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6dX-qX-i86"/>
-                                <exclude reference="eql-uK-bxQ"/>
-                                <exclude reference="Tpc-KU-xUl"/>
-                                <exclude reference="ZSm-Z4-KZr"/>
-                                <exclude reference="yQX-DP-eZP"/>
-                                <exclude reference="zdc-lS-eCt"/>
-                                <exclude reference="Sph-hZ-FlR"/>
-                                <exclude reference="dkx-Cb-wCO"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <exclude reference="bx6-ST-bMn"/>
                                 <exclude reference="fFO-QI-ilG"/>
                                 <exclude reference="nUm-1q-Cw4"/>
                                 <exclude reference="wek-F5-HuN"/>
+                                <exclude reference="Tpc-KU-xUl"/>
+                                <exclude reference="ZSm-Z4-KZr"/>
+                                <exclude reference="yQX-DP-eZP"/>
+                                <exclude reference="zdc-lS-eCt"/>
+                                <exclude reference="6dX-qX-i86"/>
+                                <exclude reference="c4t-o3-M7s"/>
+                                <exclude reference="eql-uK-bxQ"/>
                                 <exclude reference="0cJ-j6-nqQ"/>
                                 <exclude reference="DQ6-Vq-XTE"/>
                                 <exclude reference="IJl-3P-l5Z"/>
@@ -523,6 +523,8 @@
                                 <exclude reference="eXz-qX-uJo"/>
                                 <exclude reference="kQU-n9-Ixv"/>
                                 <exclude reference="vhk-Yd-dmb"/>
+                                <exclude reference="Sph-hZ-FlR"/>
+                                <exclude reference="dkx-Cb-wCO"/>
                                 <exclude reference="CK5-uM-p0b"/>
                                 <exclude reference="K62-W2-ae7"/>
                                 <exclude reference="Ru4-En-hlG"/>
@@ -536,16 +538,15 @@
                                 <include reference="K24-ug-ALY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6dX-qX-i86"/>
-                                <include reference="eql-uK-bxQ"/>
+                                <exclude reference="DfI-mo-Qf6"/>
                                 <exclude reference="Tpc-KU-xUl"/>
                                 <include reference="ZSm-Z4-KZr"/>
                                 <exclude reference="sGa-1f-Unq"/>
                                 <exclude reference="yQX-DP-eZP"/>
                                 <exclude reference="zdc-lS-eCt"/>
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="Sph-hZ-FlR"/>
-                                <exclude reference="DfI-mo-Qf6"/>
+                                <exclude reference="6dX-qX-i86"/>
+                                <include reference="c4t-o3-M7s"/>
+                                <include reference="eql-uK-bxQ"/>
                                 <include reference="0cJ-j6-nqQ"/>
                                 <include reference="DQ6-Vq-XTE"/>
                                 <exclude reference="Yco-MN-l3w"/>
@@ -553,6 +554,8 @@
                                 <exclude reference="bGt-gD-MZ2"/>
                                 <exclude reference="eXz-qX-uJo"/>
                                 <exclude reference="vhk-Yd-dmb"/>
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="Sph-hZ-FlR"/>
                                 <include reference="CK5-uM-p0b"/>
                                 <exclude reference="Ru4-En-hlG"/>
                                 <exclude reference="SMS-cD-bki"/>
@@ -567,29 +570,29 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="dkx-Cb-wCO"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <exclude reference="bx6-ST-bMn"/>
                                 <exclude reference="nUm-1q-Cw4"/>
                                 <include reference="wek-F5-HuN"/>
-                                <include reference="IJl-3P-l5Z"/>
+                                <exclude reference="IJl-3P-l5Z"/>
                                 <include reference="kQU-n9-Ixv"/>
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="dkx-Cb-wCO"/>
                                 <include reference="K62-W2-ae7"/>
                                 <exclude reference="ffk-oG-Owe"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="customImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
-                        <outlet property="selectViewCenterLeftRightButton" destination="03T-Tq-ngc" id="K7V-Le-FiV"/>
-                        <outlet property="selectViewLeftRightCenterButton" destination="dyE-Nr-Zap" id="H1S-cO-71e"/>
-                        <outlet property="selectViewTwoLeftRightButton" destination="Mch-Ih-sL1" id="xOq-aT-mVa"/>
+                        <outlet property="gridImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
+                        <outlet property="selectionGridImagesCenterTopLeftBottomRightBottomButton" destination="03T-Tq-ngc" id="K7V-Le-FiV"/>
+                        <outlet property="selectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="Mch-Ih-sL1" id="xOq-aT-mVa"/>
+                        <outlet property="selectionGridImagesLeftTopRightTopCenterBottomButton" destination="dyE-Nr-Zap" id="H1S-cO-71e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27.34375" y="26.3671875"/>
+            <point key="canvasLocation" x="26.53673163418291" y="24.800000000000001"/>
         </scene>
     </scenes>
     <resources>
@@ -597,5 +600,6 @@
         <image name="Layout1" width="80" height="80"/>
         <image name="Layout2" width="80" height="80"/>
         <image name="Layout3" width="80" height="80"/>
+        <image name="Selected" width="80" height="80"/>
     </resources>
 </document>
