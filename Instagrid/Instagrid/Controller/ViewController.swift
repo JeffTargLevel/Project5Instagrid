@@ -11,10 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var gridImagesView: GridImagesView!
-    @IBOutlet weak var selectionGridImagesCenterTopLeftBottomRightBottomButton: UIButton!
-    @IBOutlet weak var selectionGridImagesLeftTopRightTopCenterBottomButton: UIButton!
-    @IBOutlet weak var selectionGridImagesLeftRightTopAndLeftRightBottomButton: UIButton!
+    @IBOutlet weak var selectionGridImages: SelectionGridImages!
     
+    var photoManagement: PhotoManagement!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
@@ -23,30 +23,62 @@ class ViewController: UIViewController {
 
     func showAtStartup() {
         gridImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
-        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = true
+        selectionGridImages.showTheSelectedButtonAtStartup()
     }
     
-    @IBAction func didTapSelectViewCenterLeftRightButton() {
+    @IBAction func didTapSelectionGridImagesCenterTopLeftBottomRightBottomButton() {
         gridImagesView.setLayout(.centerTopLeftBottomRightBottom)
-        selectionGridImagesCenterTopLeftBottomRightBottomButton.isSelected = true
-        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = false
-        selectionGridImagesLeftRightTopAndLeftRightBottomButton.isSelected = false
+        selectionGridImages.selectGridImagesCenterTopLeftBottomRightBottom()
+    }
+    
+    @IBAction func didTapSelectionGridImagesLeftTopRightTopCenterBottomButton() {
+        gridImagesView.setLayout(.leftTopRightTopCenterBottom)
+        selectionGridImages.selectGridImagesLeftTopRightTopCenterBottom()
+    }
+    
+    @IBAction func didTapSelectionGridImagesLeftRightTopAndLeftRightBottomButton() {
+        gridImagesView.setLayout(.leftRightTopAndleftRightBottom)
+        selectionGridImages.selectGridImagesLeftRightTopAndLeftRightBottom()
+    }
+    
+    @IBAction func didTapAddPhotoCenterTopButton() {
+      
         
     }
     
-    @IBAction func didTapSelectViewLeftRightCenterButton() {
-        gridImagesView.setLayout(.leftTopRightTopCenterBottom)
-        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = true
-        selectionGridImagesLeftRightTopAndLeftRightBottomButton.isSelected = false
-        selectionGridImagesCenterTopLeftBottomRightBottomButton.isSelected = false
+    
+    @IBAction func didTapAddPhotoRightTopButton() {
+        
+        
     }
     
-    @IBAction func didTapSelectViewTwoLeftRightButton() {
-        gridImagesView.setLayout(.leftRightTopAndleftRightBottom)
-        selectionGridImagesLeftRightTopAndLeftRightBottomButton.isSelected = true
-        selectionGridImagesCenterTopLeftBottomRightBottomButton.isSelected = false
-        selectionGridImagesLeftTopRightTopCenterBottomButton.isSelected = false
+    @IBAction func didTapAddPhotoLeftTopButton() {
+        
+        
     }
+    
+    @IBAction func didTapAddPhotoCenterBottomButton() {
+        
+        
+    }
+    
+    @IBAction func didTapAddPhotoLeftBottomButton() {
+        
+        
+    }
+    
+    @IBAction func didTapAddPhotoRightBottomButton() {
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     @objc func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {

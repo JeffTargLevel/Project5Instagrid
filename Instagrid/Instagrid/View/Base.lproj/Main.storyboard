@@ -73,7 +73,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionGridImages" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="47.5" y="567" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
@@ -81,7 +81,7 @@
                                         <state key="normal" backgroundImage="Layout1"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout1"/>
                                         <connections>
-                                            <action selector="didTapSelectViewCenterLeftRightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
+                                            <action selector="didTapSelectionGridImagesCenterTopLeftBottomRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-Nr-Zap" userLabel="Button Select View 2">
@@ -89,7 +89,7 @@
                                         <state key="normal" backgroundImage="Layout2"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout2"/>
                                         <connections>
-                                            <action selector="didTapSelectViewLeftRightCenterButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
+                                            <action selector="didTapSelectionGridImagesLeftTopRightTopCenterBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-Ih-sL1" userLabel="Button Select View 3">
@@ -97,7 +97,7 @@
                                         <state key="normal" backgroundImage="Layout3"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout3"/>
                                         <connections>
-                                            <action selector="didTapSelectViewTwoLeftRightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
+                                            <action selector="didTapSelectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -116,6 +116,11 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" spacing="150"/>
+                                <connections>
+                                    <outlet property="selectionGridImagesCenterTopLeftBottomRightBottomButton" destination="03T-Tq-ngc" id="Zfj-do-Mjm"/>
+                                    <outlet property="selectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="Mch-Ih-sL1" id="hAu-xG-VtM"/>
+                                    <outlet property="selectionGridImagesLeftTopRightTopCenterBottomButton" destination="dyE-Nr-Zap" id="thk-i6-QsC"/>
+                                </connections>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="GridImagesView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="36.5" y="182.5" width="302" height="302"/>
@@ -148,6 +153,9 @@
                                                 <include reference="jxA-hQ-Pjk"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoCenterTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="P7S-ts-2XU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-Kc-YqC" userLabel="Button Add Photo Right Top">
                                         <rect key="frame" x="154" y="8" width="140" height="140"/>
@@ -178,6 +186,9 @@
                                                 <include reference="eCF-Op-2R2"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoRightTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cS-QG-4rn"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUp-zN-bh4" userLabel="Button Add Photo left Top">
                                         <rect key="frame" x="8" y="8" width="140" height="140"/>
@@ -207,8 +218,11 @@
                                                 <exclude reference="qad-YU-CdY"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoLeftTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="tw7-5T-0fs"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-Mv-RWu" userLabel="Button Add Photo Center Lows ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-Mv-RWu" userLabel="Button Add Photo Center Bottom">
                                         <rect key="frame" x="8" y="154" width="286" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -238,8 +252,11 @@
                                                 <include reference="hqd-0N-zCx"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoCenterBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbU-o9-6HC"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Lows">
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
                                         <rect key="frame" x="8" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -269,8 +286,11 @@
                                                 <include reference="jwf-dq-qcX"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoLeftBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWi-8d-ThD"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-1h-prV" userLabel="Button Add Photo Right Lows">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-1h-prV" userLabel="Button Add Photo Right Bottom">
                                         <rect key="frame" x="154" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -301,6 +321,9 @@
                                                 <exclude reference="y5u-Ka-xFg"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KWf-GM-zDL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -504,18 +527,20 @@
                                 <exclude reference="K24-ug-ALY"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="6dX-qX-i86"/>
+                                <exclude reference="c4t-o3-M7s"/>
+                                <exclude reference="eql-uK-bxQ"/>
+                                <exclude reference="Tpc-KU-xUl"/>
+                                <exclude reference="ZSm-Z4-KZr"/>
+                                <exclude reference="yQX-DP-eZP"/>
+                                <exclude reference="zdc-lS-eCt"/>
+                                <exclude reference="Sph-hZ-FlR"/>
+                                <exclude reference="dkx-Cb-wCO"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <exclude reference="bx6-ST-bMn"/>
                                 <exclude reference="fFO-QI-ilG"/>
                                 <exclude reference="nUm-1q-Cw4"/>
                                 <exclude reference="wek-F5-HuN"/>
-                                <exclude reference="Tpc-KU-xUl"/>
-                                <exclude reference="ZSm-Z4-KZr"/>
-                                <exclude reference="yQX-DP-eZP"/>
-                                <exclude reference="zdc-lS-eCt"/>
-                                <exclude reference="6dX-qX-i86"/>
-                                <exclude reference="c4t-o3-M7s"/>
-                                <exclude reference="eql-uK-bxQ"/>
                                 <exclude reference="0cJ-j6-nqQ"/>
                                 <exclude reference="DQ6-Vq-XTE"/>
                                 <exclude reference="IJl-3P-l5Z"/>
@@ -523,8 +548,6 @@
                                 <exclude reference="eXz-qX-uJo"/>
                                 <exclude reference="kQU-n9-Ixv"/>
                                 <exclude reference="vhk-Yd-dmb"/>
-                                <exclude reference="Sph-hZ-FlR"/>
-                                <exclude reference="dkx-Cb-wCO"/>
                                 <exclude reference="CK5-uM-p0b"/>
                                 <exclude reference="K62-W2-ae7"/>
                                 <exclude reference="Ru4-En-hlG"/>
@@ -538,15 +561,17 @@
                                 <include reference="K24-ug-ALY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DfI-mo-Qf6"/>
+                                <exclude reference="6dX-qX-i86"/>
+                                <include reference="c4t-o3-M7s"/>
+                                <include reference="eql-uK-bxQ"/>
                                 <exclude reference="Tpc-KU-xUl"/>
                                 <include reference="ZSm-Z4-KZr"/>
                                 <exclude reference="sGa-1f-Unq"/>
                                 <exclude reference="yQX-DP-eZP"/>
                                 <exclude reference="zdc-lS-eCt"/>
-                                <exclude reference="6dX-qX-i86"/>
-                                <include reference="c4t-o3-M7s"/>
-                                <include reference="eql-uK-bxQ"/>
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="Sph-hZ-FlR"/>
+                                <exclude reference="DfI-mo-Qf6"/>
                                 <include reference="0cJ-j6-nqQ"/>
                                 <include reference="DQ6-Vq-XTE"/>
                                 <exclude reference="Yco-MN-l3w"/>
@@ -554,8 +579,6 @@
                                 <exclude reference="bGt-gD-MZ2"/>
                                 <exclude reference="eXz-qX-uJo"/>
                                 <exclude reference="vhk-Yd-dmb"/>
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="Sph-hZ-FlR"/>
                                 <include reference="CK5-uM-p0b"/>
                                 <exclude reference="Ru4-En-hlG"/>
                                 <exclude reference="SMS-cD-bki"/>
@@ -570,14 +593,14 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="dkx-Cb-wCO"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <exclude reference="bx6-ST-bMn"/>
                                 <exclude reference="nUm-1q-Cw4"/>
                                 <include reference="wek-F5-HuN"/>
                                 <exclude reference="IJl-3P-l5Z"/>
                                 <include reference="kQU-n9-Ixv"/>
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="dkx-Cb-wCO"/>
                                 <include reference="K62-W2-ae7"/>
                                 <exclude reference="ffk-oG-Owe"/>
                             </mask>
@@ -585,9 +608,7 @@
                     </view>
                     <connections>
                         <outlet property="gridImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
-                        <outlet property="selectionGridImagesCenterTopLeftBottomRightBottomButton" destination="03T-Tq-ngc" id="K7V-Le-FiV"/>
-                        <outlet property="selectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="Mch-Ih-sL1" id="xOq-aT-mVa"/>
-                        <outlet property="selectionGridImagesLeftTopRightTopCenterBottomButton" destination="dyE-Nr-Zap" id="H1S-cO-71e"/>
+                        <outlet property="selectionGridImages" destination="knL-3n-iA9" id="qZp-pb-rnK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,4 +11,7 @@ import UIKit
 import MobileCoreServices
 
 class PhotoManagement {
+    
+    
+    
 }
