@@ -154,7 +154,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoCenterTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="P7S-ts-2XU"/>
+                                            <action selector="didTapAnyAddPhotoCenterButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="DMr-JR-B0O"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-Kc-YqC" userLabel="Button Add Photo Right Top">
@@ -187,7 +187,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoRightTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cS-QG-4rn"/>
+                                            <action selector="didTapAnyAddPhotoRightButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="Juf-W0-Xv6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUp-zN-bh4" userLabel="Button Add Photo left Top">
@@ -219,7 +219,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoLeftTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="tw7-5T-0fs"/>
+                                            <action selector="didTapAnyAddPhotoLeftButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="sb6-Ql-e3O"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-Mv-RWu" userLabel="Button Add Photo Center Bottom">
@@ -253,7 +253,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoCenterBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbU-o9-6HC"/>
+                                            <action selector="didTapAnyAddPhotoCenterButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2z-af-PFC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
@@ -287,7 +287,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoLeftBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWi-8d-ThD"/>
+                                            <action selector="didTapAnyAddPhotoLeftButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tF-9k-Xwk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-1h-prV" userLabel="Button Add Photo Right Bottom">
@@ -322,7 +322,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KWf-GM-zDL"/>
+                                            <action selector="didTapAnyAddPhotoRightButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mcs-hn-fpr"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -609,6 +609,12 @@
                     <connections>
                         <outlet property="gridImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
                         <outlet property="selectionGridImages" destination="knL-3n-iA9" id="qZp-pb-rnK"/>
+                        <outletCollection property="anyAddPhotoCenterButtons" destination="mDr-zC-Qxk" collectionClass="NSMutableArray" id="rTo-Lv-h3Z"/>
+                        <outletCollection property="anyAddPhotoCenterButtons" destination="vCW-Mv-RWu" collectionClass="NSMutableArray" id="lUG-RI-J2p"/>
+                        <outletCollection property="anyAddPhotoRightButtons" destination="g1Y-Kc-YqC" collectionClass="NSMutableArray" id="XbH-Tb-13z"/>
+                        <outletCollection property="anyAddPhotoRightButtons" destination="iq2-1h-prV" collectionClass="NSMutableArray" id="eU8-e5-eJU"/>
+                        <outletCollection property="anyAddPhotoLeftButtons" destination="FUp-zN-bh4" collectionClass="NSMutableArray" id="TnX-Vd-8DA"/>
+                        <outletCollection property="anyAddPhotoLeftButtons" destination="fQT-dH-RCf" collectionClass="NSMutableArray" id="lEg-Sp-yb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

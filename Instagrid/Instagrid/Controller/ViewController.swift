@@ -8,10 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var gridImagesView: GridImagesView!
     @IBOutlet weak var selectionGridImages: SelectionGridImages!
+    
+    @IBOutlet var anyAddPhotoCenterButtons: [UIButton]!
+    @IBOutlet var anyAddPhotoRightButtons: [UIButton]!
+    @IBOutlet var anyAddPhotoLeftButtons: [UIButton]!
+    
+    var selectButtons: [UIButton]?
     
     var photoManagement: PhotoManagement!
    
@@ -41,44 +47,38 @@ class ViewController: UIViewController {
         selectionGridImages.selectGridImagesLeftRightTopAndLeftRightBottom()
     }
     
-    @IBAction func didTapAddPhotoCenterTopButton() {
-      
-        
+    @IBAction func didTapAnyAddPhotoCenterButtons() {
+        selectImagePicker()
+        selectButtons = anyAddPhotoCenterButtons
     }
     
     
-    @IBAction func didTapAddPhotoRightTopButton() {
-        
-        
+    @IBAction func didTapAnyAddPhotoRightButtons() {
+        selectImagePicker()
+        selectButtons = anyAddPhotoRightButtons
     }
     
-    @IBAction func didTapAddPhotoLeftTopButton() {
-        
-        
+    @IBAction func didTapAnyAddPhotoLeftButtons() {
+        selectImagePicker()
+        selectButtons = anyAddPhotoLeftButtons
     }
     
-    @IBAction func didTapAddPhotoCenterBottomButton() {
-        
-        
+    func selectImagePicker() {
+        let imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func didTapAddPhotoLeftBottomButton() {
-        
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectButtons?[0].imageView?.contentMode = .scaleAspectFill
+            selectButtons?[1].imageView?.contentMode = .scaleAspectFill
+            selectButtons?[0].setImage(pickedImage, for: .normal)
+            selectButtons?[1].setImage(pickedImage, for: .normal)
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func didTapAddPhotoRightBottomButton() {
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
     
     @objc func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {

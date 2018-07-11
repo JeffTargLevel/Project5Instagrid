@@ -53,7 +53,6 @@ class GridImagesView: UIView {
         }
     }
     
-    
     func setColorAddPhotoButtonInModePortrait() {
         addPhotoCenterTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
         addPhotoLeftBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
