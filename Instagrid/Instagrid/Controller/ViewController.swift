@@ -12,12 +12,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBOutlet weak var gridImagesView: GridImagesView!
     @IBOutlet weak var selectionGridImages: SelectionGridImages!
-    
     @IBOutlet var anyAddPhotoCenterButtons: [UIButton]!
     @IBOutlet var anyAddPhotoRightButtons: [UIButton]!
     @IBOutlet var anyAddPhotoLeftButtons: [UIButton]!
+    @IBOutlet var addPhotoLeftBottomForWindowGridButton: [UIButton]!
+    @IBOutlet var addPhotoRightBottomForWindowGridButton: [UIButton]!
     
-    var selectButtons: [UIButton]?
+    
+    var selectFirstImage: UIButton?
+    var selectSecondImage: UIButton?
     
     var photoManagement: PhotoManagement!
    
@@ -49,18 +52,32 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func didTapAnyAddPhotoCenterButtons() {
         selectImagePicker()
-        selectButtons = anyAddPhotoCenterButtons
+        selectFirstImage = anyAddPhotoCenterButtons[0]
+        selectSecondImage = anyAddPhotoCenterButtons[1]
     }
-    
     
     @IBAction func didTapAnyAddPhotoRightButtons() {
         selectImagePicker()
-        selectButtons = anyAddPhotoRightButtons
+        selectFirstImage = anyAddPhotoRightButtons[0]
+        selectSecondImage = anyAddPhotoRightButtons[1]
     }
     
     @IBAction func didTapAnyAddPhotoLeftButtons() {
         selectImagePicker()
-        selectButtons = anyAddPhotoLeftButtons
+        selectFirstImage = anyAddPhotoLeftButtons[0]
+        selectSecondImage = anyAddPhotoLeftButtons[1]
+    }
+    
+    @IBAction func didTapAddPhotoLeftBottomForWindowGridButton() {
+        selectImagePicker()
+        selectFirstImage = addPhotoLeftBottomForWindowGridButton[0]
+        selectSecondImage = anyAddPhotoLeftButtons[1]
+    }
+    
+    @IBAction func didTapAddPhotoRightBottomForWindowGridButton() {
+        selectImagePicker()
+        selectFirstImage = addPhotoRightBottomForWindowGridButton[0]
+        selectSecondImage = anyAddPhotoRightButtons[1]
     }
     
     func selectImagePicker() {
@@ -72,10 +89,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            selectButtons?[0].imageView?.contentMode = .scaleAspectFill
-            selectButtons?[1].imageView?.contentMode = .scaleAspectFill
-            selectButtons?[0].setImage(pickedImage, for: .normal)
-            selectButtons?[1].setImage(pickedImage, for: .normal)
+            selectFirstImage?.imageView?.contentMode = .scaleAspectFill
+            selectSecondImage?.imageView?.contentMode = .scaleAspectFill
+            selectFirstImage?.setImage(pickedImage, for: .normal)
+            selectSecondImage?.setImage(pickedImage, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
     }

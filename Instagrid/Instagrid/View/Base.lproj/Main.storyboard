@@ -325,15 +325,86 @@
                                             <action selector="didTapAnyAddPhotoRightButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mcs-hn-fpr"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-FZ-QDn" userLabel="Button Add Photo left Bottom for window grid">
+                                        <rect key="frame" x="8" y="154" width="140" height="140"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="340" id="OxW-Su-3rM"/>
+                                            <constraint firstAttribute="height" constant="140" id="Xgj-Jk-E0j">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="340"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="340" id="fkt-Vg-ADd"/>
+                                            <constraint firstAttribute="width" constant="140" id="nO5-2U-SAn">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="340"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" image="AddPhotoPortrait">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="fkt-Vg-ADd"/>
+                                                <exclude reference="OxW-Su-3rM"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="nO5-2U-SAn"/>
+                                                <include reference="fkt-Vg-ADd"/>
+                                                <exclude reference="Xgj-Jk-E0j"/>
+                                                <include reference="OxW-Su-3rM"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoLeftBottomForWindowGridButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEy-GD-C4D"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-dy-jlu" userLabel="Button Add Photo Right Bottom for window grid">
+                                        <rect key="frame" x="154" y="154" width="140" height="140"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="340" id="F8k-gp-VFn"/>
+                                            <constraint firstAttribute="height" constant="340" id="PYl-Ac-tGx"/>
+                                            <constraint firstAttribute="width" constant="140" id="b2k-bu-qdc">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="340"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="140" id="o47-pY-c0v">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="340"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" image="AddPhotoPortrait">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="F8k-gp-VFn"/>
+                                                <exclude reference="PYl-Ac-tGx"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="F8k-gp-VFn"/>
+                                                <include reference="PYl-Ac-tGx"/>
+                                                <exclude reference="b2k-bu-qdc"/>
+                                                <exclude reference="o47-pY-c0v"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="didTapAddPhotoRightBottomForWindowGridButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="uEy-EH-3Tu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="FUp-zN-bh4" firstAttribute="leading" secondItem="4jv-pk-IPH" secondAttribute="leading" constant="8" id="16r-GX-uWr"/>
                                     <constraint firstItem="mDr-zC-Qxk" firstAttribute="top" secondItem="4jv-pk-IPH" secondAttribute="top" constant="8" id="32Z-Pn-FMr"/>
+                                    <constraint firstItem="poG-dy-jlu" firstAttribute="leading" secondItem="hWa-FZ-QDn" secondAttribute="trailing" constant="6" id="3dI-UV-Fub"/>
                                     <constraint firstItem="vCW-Mv-RWu" firstAttribute="top" secondItem="g1Y-Kc-YqC" secondAttribute="bottom" constant="6" id="6l3-yb-Onm"/>
                                     <constraint firstItem="fQT-dH-RCf" firstAttribute="leading" secondItem="FUp-zN-bh4" secondAttribute="leading" id="8oa-R2-CwO"/>
                                     <constraint firstItem="vCW-Mv-RWu" firstAttribute="leading" secondItem="4jv-pk-IPH" secondAttribute="leading" constant="8" id="9PS-Cn-cQC"/>
                                     <constraint firstItem="iq2-1h-prV" firstAttribute="trailing" secondItem="mDr-zC-Qxk" secondAttribute="trailing" id="AK1-TB-7Rt"/>
+                                    <constraint firstAttribute="trailing" secondItem="poG-dy-jlu" secondAttribute="trailing" constant="8" id="AgO-NT-Gt5"/>
                                     <constraint firstItem="vCW-Mv-RWu" firstAttribute="top" secondItem="FUp-zN-bh4" secondAttribute="bottom" constant="6" id="CCZ-cl-r0S"/>
                                     <constraint firstItem="fQT-dH-RCf" firstAttribute="leading" secondItem="mDr-zC-Qxk" secondAttribute="leading" id="CR0-VK-HNy"/>
                                     <constraint firstAttribute="height" constant="302" id="Dnr-YB-mgE"/>
@@ -341,7 +412,9 @@
                                     <constraint firstItem="g1Y-Kc-YqC" firstAttribute="top" secondItem="FUp-zN-bh4" secondAttribute="top" id="Jfn-wA-Aen"/>
                                     <constraint firstAttribute="bottom" secondItem="fQT-dH-RCf" secondAttribute="bottom" constant="8" id="NMa-QR-xF8"/>
                                     <constraint firstItem="g1Y-Kc-YqC" firstAttribute="top" secondItem="FUp-zN-bh4" secondAttribute="top" id="NdX-9H-bKU"/>
+                                    <constraint firstAttribute="bottom" secondItem="hWa-FZ-QDn" secondAttribute="bottom" constant="8" id="RZF-4G-FKL"/>
                                     <constraint firstItem="FUp-zN-bh4" firstAttribute="leading" secondItem="4jv-pk-IPH" secondAttribute="leading" constant="8" id="SVU-hp-akS"/>
+                                    <constraint firstAttribute="trailing" secondItem="poG-dy-jlu" secondAttribute="trailing" constant="8" id="TqT-1L-rX5"/>
                                     <constraint firstAttribute="bottom" secondItem="fQT-dH-RCf" secondAttribute="bottom" constant="8" id="VKG-gD-Uyr"/>
                                     <constraint firstItem="vCW-Mv-RWu" firstAttribute="trailing" secondItem="g1Y-Kc-YqC" secondAttribute="trailing" id="VdT-xg-35f"/>
                                     <constraint firstItem="g1Y-Kc-YqC" firstAttribute="leading" secondItem="FUp-zN-bh4" secondAttribute="trailing" constant="10" id="VuL-kv-kQ1"/>
@@ -356,6 +429,8 @@
                                     <constraint firstAttribute="width" constant="706" id="cNR-C2-o6U"/>
                                     <constraint firstAttribute="trailing" secondItem="g1Y-Kc-YqC" secondAttribute="trailing" constant="8" id="cgD-04-aP5"/>
                                     <constraint firstAttribute="bottom" secondItem="vCW-Mv-RWu" secondAttribute="bottom" constant="8" id="d9a-rg-HBb"/>
+                                    <constraint firstAttribute="bottom" secondItem="poG-dy-jlu" secondAttribute="bottom" constant="8" id="dab-8H-wU2"/>
+                                    <constraint firstAttribute="bottom" secondItem="poG-dy-jlu" secondAttribute="bottom" constant="8" id="dzj-N3-vfL"/>
                                     <constraint firstItem="g1Y-Kc-YqC" firstAttribute="top" secondItem="4jv-pk-IPH" secondAttribute="top" constant="8" id="eao-hb-7Es"/>
                                     <constraint firstAttribute="bottom" secondItem="iq2-1h-prV" secondAttribute="bottom" constant="8" id="ev0-jP-gps"/>
                                     <constraint firstItem="iq2-1h-prV" firstAttribute="top" secondItem="g1Y-Kc-YqC" secondAttribute="bottom" constant="6" id="fWo-0b-Sdj"/>
@@ -371,6 +446,7 @@
                                     <constraint firstItem="fQT-dH-RCf" firstAttribute="leading" secondItem="4jv-pk-IPH" secondAttribute="leading" constant="8" id="sx6-Mx-XiJ"/>
                                     <constraint firstItem="mDr-zC-Qxk" firstAttribute="leading" secondItem="4jv-pk-IPH" secondAttribute="leading" constant="8" id="wpa-6c-0a7"/>
                                     <constraint firstItem="iq2-1h-prV" firstAttribute="leading" secondItem="fQT-dH-RCf" secondAttribute="trailing" constant="10" id="yBI-Wc-HPF"/>
+                                    <constraint firstItem="hWa-FZ-QDn" firstAttribute="leading" secondItem="4jv-pk-IPH" secondAttribute="leading" constant="8" id="ziV-Ed-KUi"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -397,6 +473,8 @@
                                         <exclude reference="ev0-jP-gps"/>
                                         <exclude reference="sqd-XK-QEw"/>
                                         <exclude reference="yBI-Wc-HPF"/>
+                                        <exclude reference="AgO-NT-Gt5"/>
+                                        <exclude reference="dab-8H-wU2"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
@@ -444,14 +522,21 @@
                                         <exclude reference="kkt-sr-mRJ"/>
                                         <include reference="sqd-XK-QEw"/>
                                         <include reference="yBI-Wc-HPF"/>
+                                        <exclude reference="3dI-UV-Fub"/>
+                                        <include reference="AgO-NT-Gt5"/>
+                                        <exclude reference="TqT-1L-rX5"/>
+                                        <include reference="dab-8H-wU2"/>
+                                        <exclude reference="dzj-N3-vfL"/>
                                     </mask>
                                 </variation>
                                 <connections>
                                     <outlet property="addPhotoCenterBottomButton" destination="vCW-Mv-RWu" id="IJd-7d-o7K"/>
                                     <outlet property="addPhotoCenterTopButton" destination="mDr-zC-Qxk" id="e3S-od-KyN"/>
                                     <outlet property="addPhotoLeftBottomButton" destination="fQT-dH-RCf" id="kKg-8h-N1G"/>
+                                    <outlet property="addPhotoLeftBottomForWindowGrid" destination="hWa-FZ-QDn" id="gXP-a1-w3d"/>
                                     <outlet property="addPhotoLeftTopButton" destination="FUp-zN-bh4" id="qMW-ZJ-fEN"/>
                                     <outlet property="addPhotoRightBottomButton" destination="iq2-1h-prV" id="A7X-qF-p4y"/>
+                                    <outlet property="addPhotoRightBottomForWindowGrid" destination="poG-dy-jlu" id="USv-Cq-fbR"/>
                                     <outlet property="addPhotoRightTopButton" destination="g1Y-Kc-YqC" id="gxG-K9-HWK"/>
                                 </connections>
                             </view>
@@ -615,6 +700,8 @@
                         <outletCollection property="anyAddPhotoRightButtons" destination="iq2-1h-prV" collectionClass="NSMutableArray" id="eU8-e5-eJU"/>
                         <outletCollection property="anyAddPhotoLeftButtons" destination="FUp-zN-bh4" collectionClass="NSMutableArray" id="TnX-Vd-8DA"/>
                         <outletCollection property="anyAddPhotoLeftButtons" destination="fQT-dH-RCf" collectionClass="NSMutableArray" id="lEg-Sp-yb7"/>
+                        <outletCollection property="addPhotoLeftBottomForWindowGridButton" destination="hWa-FZ-QDn" collectionClass="NSMutableArray" id="4ha-3M-Bk3"/>
+                        <outletCollection property="addPhotoRightBottomForWindowGridButton" destination="poG-dy-jlu" collectionClass="NSMutableArray" id="8rm-AA-Hyg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

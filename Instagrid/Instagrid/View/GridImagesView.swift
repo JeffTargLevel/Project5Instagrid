@@ -16,6 +16,8 @@ class GridImagesView: UIView {
     @IBOutlet private var addPhotoCenterBottomButton: UIButton!
     @IBOutlet private var addPhotoLeftBottomButton: UIButton!
     @IBOutlet private var addPhotoRightBottomButton: UIButton!
+    @IBOutlet private var addPhotoLeftBottomForWindowGrid: UIButton!
+    @IBOutlet private var addPhotoRightBottomForWindowGrid: UIButton!
     
     enum Layout {
         case centerTopLeftBottomRightBottom, leftTopRightTopCenterBottom, leftRightTopAndleftRightBottom
@@ -36,6 +38,8 @@ class GridImagesView: UIView {
             addPhotoLeftTopButton.isHidden = true
             addPhotoRightTopButton.isHidden = true
             addPhotoCenterBottomButton.isHidden = true
+            addPhotoLeftBottomForWindowGrid.isHidden = true
+            addPhotoRightBottomForWindowGrid.isHidden = true
         case .leftTopRightTopCenterBottom:
             addPhotoLeftTopButton.isHidden = false
             addPhotoRightTopButton.isHidden = false
@@ -43,11 +47,16 @@ class GridImagesView: UIView {
             addPhotoCenterTopButton.isHidden = true
             addPhotoLeftBottomButton.isHidden = true
             addPhotoRightBottomButton.isHidden = true
+            addPhotoLeftBottomForWindowGrid.isHidden = true
+            addPhotoRightBottomForWindowGrid.isHidden = true
+            
         case .leftRightTopAndleftRightBottom:
             addPhotoLeftTopButton.isHidden = false
             addPhotoRightTopButton.isHidden = false
-            addPhotoLeftBottomButton.isHidden = false
-            addPhotoRightBottomButton.isHidden = false
+            addPhotoLeftBottomForWindowGrid.isHidden = false
+            addPhotoRightBottomForWindowGrid.isHidden = false
+            addPhotoLeftBottomButton.isHidden = true
+            addPhotoRightBottomButton.isHidden = true
             addPhotoCenterTopButton.isHidden = true
             addPhotoCenterBottomButton.isHidden = true
         }
