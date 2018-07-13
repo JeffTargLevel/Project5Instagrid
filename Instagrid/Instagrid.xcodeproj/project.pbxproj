@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6205A36B20F8F75B001DEE01 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6205A36A20F8F75B001DEE01 /* UIImageExtension.swift */; };
 		621FDF3320EE7CC80077F46B /* GridImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621FDF3220EE7CC80077F46B /* GridImagesView.swift */; };
 		627A60AC20F4A3AD00E619E6 /* SelectionGridImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627A60AB20F4A3AD00E619E6 /* SelectionGridImages.swift */; };
 		629BBAF620F355D6008D106E /* PhotoManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629BBAF520F355D6008D106E /* PhotoManagement.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6205A36A20F8F75B001DEE01 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		621FDF3220EE7CC80077F46B /* GridImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImagesView.swift; sourceTree = "<group>"; };
 		627A60AB20F4A3AD00E619E6 /* SelectionGridImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionGridImages.swift; sourceTree = "<group>"; };
 		629BBAF520F355D6008D106E /* PhotoManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagement.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6205A36920F8F708001DEE01 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6205A36A20F8F75B001DEE01 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		62D9EB8E20E2314400D47EF1 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 				62D9EBB420E2337A00D47EF1 /* ThirstySoftRegular.otf */,
 				62D9EBA320E2314600D47EF1 /* LaunchScreen.storyboard */,
 				62D9EBA620E2314600D47EF1 /* Info.plist */,
+				6205A36920F8F708001DEE01 /* Extensions */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 				621FDF3320EE7CC80077F46B /* GridImagesView.swift in Sources */,
 				629BBAF620F355D6008D106E /* PhotoManagement.swift in Sources */,
 				627A60AC20F4A3AD00E619E6 /* SelectionGridImages.swift in Sources */,
+				6205A36B20F8F75B001DEE01 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

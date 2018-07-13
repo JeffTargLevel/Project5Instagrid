@@ -100,8 +100,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
     @objc func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
-                transformGridImagesViewWith(gesture: sender)
+        switch sender.state {
+        case .began, .changed:
+            transformGridImagesViewWith(gesture: sender)
+        case .ended, .cancelled:
+            gridImagesView.transform = .identity
+        default:
+            break
+        }
     }
     
     private func transformGridImagesViewWith(gesture: UIPanGestureRecognizer) {
@@ -109,17 +117,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
         let transform = translationTransform
         gridImagesView.transform = transform
-        
+    
         if translation.y < -70 {
             shareGridImagesView()
-        } else {
-            
         }
     }
     
     private func shareGridImagesView() {
-        let gridImages = gridImagesView
-        let shareScoreWriteWithText = UIActivityViewController(activityItems: [gridImages!], applicationActivities: nil)
+        let gridImages = UIImage(view: gridImagesView)
+        
+        let shareScoreWriteWithText = UIActivityViewController(activityItems: [gridImages], applicationActivities: nil)
         present(shareScoreWriteWithText, animated: true, completion: nil)
     }
     
