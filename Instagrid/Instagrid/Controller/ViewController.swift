@@ -12,12 +12,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBOutlet weak var gridImagesView: GridImagesView!
     @IBOutlet weak var selectionGridImages: SelectionGridImages!
+    
     @IBOutlet var anyAddPhotoCenterButtons: [UIButton]!
     @IBOutlet var anyAddPhotoRightButtons: [UIButton]!
     @IBOutlet var anyAddPhotoLeftButtons: [UIButton]!
     @IBOutlet var addPhotoLeftBottomForWindowGridButton: [UIButton]!
     @IBOutlet var addPhotoRightBottomForWindowGridButton: [UIButton]!
-    
     
     var selectFirstImage: UIButton?
     var selectSecondImage: UIButton?
@@ -27,9 +27,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
         showAtStartup()
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
+        gridImagesView.addGestureRecognizer(panGestureRecognizer)
     }
-
+    
     func showAtStartup() {
         gridImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
         selectionGridImages.showTheSelectedButtonAtStartup()
@@ -95,6 +99,28 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             selectSecondImage?.setImage(pickedImage, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+    @objc func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
+                transformGridImagesViewWith(gesture: sender)
+    }
+    
+    private func transformGridImagesViewWith(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: gridImagesView)
+        let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
+        let transform = translationTransform
+        gridImagesView.transform = transform
+        
+        if translation.y < -70 {
+            shareGridImagesView()
+        } else {
+            
+        }
+    }
+    
+    private func shareGridImagesView() {
+        let gridImages = gridImagesView
+        let shareScoreWriteWithText = UIActivityViewController(activityItems: [gridImages!], applicationActivities: nil)
+        present(shareScoreWriteWithText, animated: true, completion: nil)
     }
     
     @objc func rotated() {

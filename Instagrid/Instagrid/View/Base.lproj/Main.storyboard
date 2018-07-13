@@ -343,16 +343,16 @@
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="fkt-Vg-ADd"/>
                                                 <exclude reference="OxW-Su-3rM"/>
+                                                <exclude reference="fkt-Vg-ADd"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <mask key="constraints">
-                                                <exclude reference="nO5-2U-SAn"/>
-                                                <include reference="fkt-Vg-ADd"/>
-                                                <exclude reference="Xgj-Jk-E0j"/>
                                                 <include reference="OxW-Su-3rM"/>
+                                                <exclude reference="Xgj-Jk-E0j"/>
+                                                <include reference="fkt-Vg-ADd"/>
+                                                <exclude reference="nO5-2U-SAn"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -362,6 +362,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-dy-jlu" userLabel="Button Add Photo Right Bottom for window grid">
                                         <rect key="frame" x="154" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="340" id="F8k-gp-VFn"/>
                                             <constraint firstAttribute="height" constant="340" id="PYl-Ac-tGx"/>
@@ -396,6 +397,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="FUp-zN-bh4" firstAttribute="leading" secondItem="4jv-pk-IPH" secondAttribute="leading" constant="8" id="16r-GX-uWr"/>
                                     <constraint firstItem="mDr-zC-Qxk" firstAttribute="top" secondItem="4jv-pk-IPH" secondAttribute="top" constant="8" id="32Z-Pn-FMr"/>
@@ -567,6 +569,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="4jv-pk-IPH" firstAttribute="leading" secondItem="K24-ug-ALY" secondAttribute="trailing" constant="5" id="0cJ-j6-nqQ"/>
                             <constraint firstItem="7AU-58-lcT" firstAttribute="centerX" secondItem="ofG-Wc-Ldo" secondAttribute="centerX" id="4BH-Do-yoi"/>
