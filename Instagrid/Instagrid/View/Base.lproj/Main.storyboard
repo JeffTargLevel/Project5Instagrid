@@ -122,6 +122,31 @@
                                     <outlet property="selectionGridImagesLeftTopRightTopCenterBottomButton" destination="dyE-Nr-Zap" id="thk-i6-QsC"/>
                                 </connections>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇦ Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K24-ug-ALY">
+                                <rect key="frame" x="5" y="139" width="172.5" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="B7o-Xc-Rgx"/>
+                                    <constraint firstAttribute="width" secondItem="K24-ug-ALY" secondAttribute="height" multiplier="149:86" id="DVm-yq-nE5"/>
+                                    <constraint firstAttribute="width" secondItem="K24-ug-ALY" secondAttribute="height" multiplier="149:86" id="d0C-vr-mkX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="B7o-Xc-Rgx"/>
+                                        <exclude reference="DVm-yq-nE5"/>
+                                        <exclude reference="d0C-vr-mkX"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="B7o-Xc-Rgx"/>
+                                        <exclude reference="DVm-yq-nE5"/>
+                                        <exclude reference="d0C-vr-mkX"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="GridImagesView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="36.5" y="182.5" width="302" height="302"/>
                                 <subviews>
@@ -542,31 +567,6 @@
                                     <outlet property="addPhotoRightTopButton" destination="g1Y-Kc-YqC" id="gxG-K9-HWK"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇦ Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K24-ug-ALY">
-                                <rect key="frame" x="5" y="139" width="172.5" height="97"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="97" id="B7o-Xc-Rgx"/>
-                                    <constraint firstAttribute="width" secondItem="K24-ug-ALY" secondAttribute="height" multiplier="149:86" id="DVm-yq-nE5"/>
-                                    <constraint firstAttribute="width" secondItem="K24-ug-ALY" secondAttribute="height" multiplier="149:86" id="d0C-vr-mkX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="B7o-Xc-Rgx"/>
-                                        <exclude reference="DVm-yq-nE5"/>
-                                        <exclude reference="d0C-vr-mkX"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="B7o-Xc-Rgx"/>
-                                        <exclude reference="DVm-yq-nE5"/>
-                                        <exclude reference="d0C-vr-mkX"/>
-                                    </mask>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>

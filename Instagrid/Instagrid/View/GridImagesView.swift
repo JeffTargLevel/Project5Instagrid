@@ -69,6 +69,8 @@ class GridImagesView: UIView {
         addPhotoLeftTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
         addPhotoRightTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
         addPhotoCenterBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+        addPhotoLeftBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
+        addPhotoRightBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
     }
     
     func setColorAddPhotoButtonInModeLandscape() {
@@ -78,5 +80,7 @@ class GridImagesView: UIView {
         addPhotoLeftTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
         addPhotoRightTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
         addPhotoCenterBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+        addPhotoLeftBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
+        addPhotoRightBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
     }
 }

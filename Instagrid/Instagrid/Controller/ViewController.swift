@@ -26,8 +26,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name:
+            NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         showAtStartup()
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
@@ -114,11 +114,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     private func transformGridImagesViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: gridImagesView)
-        let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
-        let transform = translationTransform
+        var translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
+        var transform = translationTransform
         gridImagesView.transform = transform
     
-        if translation.y < -70 {
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) && translation.y < -70 {
+            shareGridImagesView()
+        } else if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
+            transform = translationTransform
+            gridImagesView.transform = transform
+        }
+        if translation.x < -180 {
             shareGridImagesView()
         }
     }
