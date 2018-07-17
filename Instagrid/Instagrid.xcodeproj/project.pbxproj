@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6205A36B20F8F75B001DEE01 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6205A36A20F8F75B001DEE01 /* UIImageExtension.swift */; };
 		621FDF3320EE7CC80077F46B /* GridImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621FDF3220EE7CC80077F46B /* GridImagesView.swift */; };
+		6221E89120FE2CE500D39A0A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E89020FE2CE500D39A0A /* UIViewExtension.swift */; };
 		627A60AC20F4A3AD00E619E6 /* SelectionGridImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627A60AB20F4A3AD00E619E6 /* SelectionGridImages.swift */; };
 		629BBAF620F355D6008D106E /* PhotoManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629BBAF520F355D6008D106E /* PhotoManagement.swift */; };
 		62D9EB9B20E2314500D47EF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EB9A20E2314500D47EF1 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		6205A36A20F8F75B001DEE01 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		621FDF3220EE7CC80077F46B /* GridImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImagesView.swift; sourceTree = "<group>"; };
+		6221E89020FE2CE500D39A0A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		627A60AB20F4A3AD00E619E6 /* SelectionGridImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionGridImages.swift; sourceTree = "<group>"; };
 		629BBAF520F355D6008D106E /* PhotoManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagement.swift; sourceTree = "<group>"; };
 		62D9EB9720E2314500D47EF1 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				6205A36A20F8F75B001DEE01 /* UIImageExtension.swift */,
+				6221E89020FE2CE500D39A0A /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				62D9EB9B20E2314500D47EF1 /* AppDelegate.swift in Sources */,
 				621FDF3320EE7CC80077F46B /* GridImagesView.swift in Sources */,
 				629BBAF620F355D6008D106E /* PhotoManagement.swift in Sources */,
+				6221E89120FE2CE500D39A0A /* UIViewExtension.swift in Sources */,
 				627A60AC20F4A3AD00E619E6 /* SelectionGridImages.swift in Sources */,
 				6205A36B20F8F75B001DEE01 /* UIImageExtension.swift in Sources */,
 			);

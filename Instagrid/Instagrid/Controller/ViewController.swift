@@ -19,11 +19,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet var addPhotoLeftBottomForWindowGridButton: [UIButton]!
     @IBOutlet var addPhotoRightBottomForWindowGridButton: [UIButton]!
     
-    var selectFirstImage: UIButton?
-    var selectSecondImage: UIButton?
+    private var selectFirstImage: UIButton?
+    private var selectSecondImage: UIButton?
     
-    var photoManagement: PhotoManagement!
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name:
@@ -32,9 +30,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
         gridImagesView.addGestureRecognizer(panGestureRecognizer)
+        
     }
     
-    func showAtStartup() {
+    private func showAtStartup() {
         gridImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
         selectionGridImages.showTheSelectedButtonAtStartup()
     }
@@ -84,14 +83,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         selectSecondImage = anyAddPhotoRightButtons[1]
     }
     
-    func selectImagePicker() {
+    private func selectImagePicker() {
         let imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             selectFirstImage?.imageView?.contentMode = .scaleAspectFill
             selectSecondImage?.imageView?.contentMode = .scaleAspectFill
@@ -117,24 +116,37 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         var translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
         var transform = translationTransform
         gridImagesView.transform = transform
-    
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) && translation.y < -70 {
-            shareGridImagesView()
-        } else if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+        
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            if translation.y < -70 {
+                shareGridImagesView()
+            } else if translation.y > 0 {
+                shakeForBadSwipe()
+            }
+        }
+        
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
             translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
             transform = translationTransform
             gridImagesView.transform = transform
-        }
-        if translation.x < -180 {
-            shareGridImagesView()
+            
+            if translation.x < -180 {
+                shareGridImagesView()
+            } else if translation.x > 0 {
+                shakeForBadSwipe()
+            }
         }
     }
     
     private func shareGridImagesView() {
         let gridImages = UIImage(view: gridImagesView)
-        
         let shareScoreWriteWithText = UIActivityViewController(activityItems: [gridImages], applicationActivities: nil)
         present(shareScoreWriteWithText, animated: true, completion: nil)
+    }
+    
+    func shakeForBadSwipe() {
+        gridImagesView.shake()
+        gridImagesView.transform = .identity
     }
     
     @objc func rotated() {
@@ -147,4 +159,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
 }
+
+
 
