@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,11 +23,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-Wc-Ldo" userLabel="Instagrid Logo">
-                                <rect key="frame" x="274" y="20" width="220" height="53"/>
+                                <rect key="frame" x="130" y="25" width="115" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="sHf-wc-T68">
                                         <variation key="heightClass=regular-widthClass=regular" constant="53"/>
@@ -43,55 +43,33 @@
                                     <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="46"/>
                                 </variation>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionGridImages" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="54" y="884" width="660" height="120"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                        <state key="normal" backgroundImage="Layout1"/>
-                                        <state key="selected" image="Selected" backgroundImage="Layout1"/>
-                                        <connections>
-                                            <action selector="didTapSelectionGridImagesCenterTopLeftBottomRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-Nr-Zap" userLabel="Button Select View 2">
-                                        <rect key="frame" x="270" y="0.0" width="120" height="120"/>
-                                        <state key="normal" backgroundImage="Layout2"/>
-                                        <state key="selected" image="Selected" backgroundImage="Layout2"/>
-                                        <connections>
-                                            <action selector="didTapSelectionGridImagesLeftTopRightTopCenterBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-Ih-sL1" userLabel="Button Select View 3">
-                                        <rect key="frame" x="540" y="0.0" width="120" height="120"/>
-                                        <state key="normal" backgroundImage="Layout3"/>
-                                        <state key="selected" image="Selected" backgroundImage="Layout3"/>
-                                        <connections>
-                                            <action selector="didTapSelectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇧ Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AU-58-lcT">
+                                <rect key="frame" x="36.5" y="110.5" width="302" height="67"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="OcE-Nl-cSO">
-                                        <variation key="heightClass=compact" constant="80"/>
-                                        <variation key="heightClass=regular-widthClass=regular" constant="660"/>
+                                    <constraint firstAttribute="height" constant="70" id="Iyo-ZT-Top"/>
+                                    <constraint firstAttribute="height" constant="67" id="JkW-BZ-fG6">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="73"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="80" id="mRx-na-Ocj">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                                    </constraint>
+                                    <constraint firstAttribute="width" constant="220" id="Spg-Tp-fwi"/>
+                                    <constraint firstAttribute="width" constant="302" id="j3w-Pg-uKJ"/>
                                 </constraints>
-                                <variation key="heightClass=compact" axis="vertical">
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="mRx-na-Ocj"/>
+                                        <exclude reference="Iyo-ZT-Top"/>
+                                        <exclude reference="Spg-Tp-fwi"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=regular" spacing="150"/>
-                                <connections>
-                                    <outlet property="selectionGridImagesCenterTopLeftBottomRightBottomButton" destination="03T-Tq-ngc" id="Zfj-do-Mjm"/>
-                                    <outlet property="selectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="Mch-Ih-sL1" id="hAu-xG-VtM"/>
-                                    <outlet property="selectionGridImagesLeftTopRightTopCenterBottomButton" destination="dyE-Nr-Zap" id="thk-i6-QsC"/>
-                                </connections>
-                            </stackView>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Iyo-ZT-Top"/>
+                                        <exclude reference="JkW-BZ-fG6"/>
+                                        <include reference="Spg-Tp-fwi"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇦ Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K24-ug-ALY">
                                 <rect key="frame" x="5" y="139" width="172.5" height="97"/>
                                 <constraints>
@@ -118,10 +96,10 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="GridImagesView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="119" y="247" width="530" height="530"/>
+                                <rect key="frame" x="36.5" y="182.5" width="302" height="302"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-zC-Qxk" userLabel="Button Add Photo Center Top">
-                                        <rect key="frame" x="8" y="8" width="514" height="255"/>
+                                        <rect key="frame" x="8" y="8" width="286" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="5cw-VC-S5e"/>
@@ -153,7 +131,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-Kc-YqC" userLabel="Button Add Photo Right Top">
-                                        <rect key="frame" x="268" y="8" width="255" height="255"/>
+                                        <rect key="frame" x="154" y="8" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="Cgo-go-NMb"/>
@@ -185,8 +163,8 @@
                                             <action selector="didTapAnyAddPhotoRightButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="Juf-W0-Xv6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUp-zN-bh4" userLabel="Button Add Photo left Top">
-                                        <rect key="frame" x="8" y="8" width="255" height="255"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUp-zN-bh4" userLabel="Button Add Photo left Top">
+                                        <rect key="frame" x="8" y="8" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="255" id="FB5-ar-wQc"/>
@@ -196,9 +174,8 @@
                                             </constraint>
                                             <constraint firstAttribute="height" constant="140" id="qad-YU-CdY"/>
                                         </constraints>
-                                        <state key="normal" image="AddPhotoPortrait">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" image="AddPhotoPortrait"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="FB5-ar-wQc"/>
@@ -218,7 +195,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-Mv-RWu" userLabel="Button Add Photo Center Bottom">
-                                        <rect key="frame" x="8" y="269" width="514" height="255"/>
+                                        <rect key="frame" x="8" y="154" width="286" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="286" id="0Y8-px-YVH">
@@ -252,7 +229,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
-                                        <rect key="frame" x="8" y="269" width="255" height="255"/>
+                                        <rect key="frame" x="8" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="0tE-Vm-dIH">
@@ -286,7 +263,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-1h-prV" userLabel="Button Add Photo Right Bottom">
-                                        <rect key="frame" x="268" y="269" width="255" height="255"/>
+                                        <rect key="frame" x="154" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="255" id="HiG-EA-3ru"/>
@@ -321,7 +298,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-FZ-QDn" userLabel="Button Add Photo left Bottom for window grid">
-                                        <rect key="frame" x="8" y="269" width="255" height="255"/>
+                                        <rect key="frame" x="8" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="140" id="Xgj-Jk-E0j">
@@ -355,7 +332,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-dy-jlu" userLabel="Button Add Photo Right Bottom for window grid">
-                                        <rect key="frame" x="268" y="269" width="255" height="255"/>
+                                        <rect key="frame" x="154" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -539,36 +516,55 @@
                                     <outlet property="addPhotoRightTopButton" destination="g1Y-Kc-YqC" id="gxG-K9-HWK"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇧ Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AU-58-lcT">
-                                <rect key="frame" x="274" y="169" width="220" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionGridImages" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="47.5" y="567" width="280" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout1"/>
+                                        <state key="selected" image="Selected" backgroundImage="Layout1"/>
+                                        <connections>
+                                            <action selector="didTapSelectionGridImagesCenterTopLeftBottomRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-Nr-Zap" userLabel="Button Select View 2">
+                                        <rect key="frame" x="100" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout2"/>
+                                        <state key="selected" image="Selected" backgroundImage="Layout2"/>
+                                        <connections>
+                                            <action selector="didTapSelectionGridImagesLeftTopRightTopCenterBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-Ih-sL1" userLabel="Button Select View 3">
+                                        <rect key="frame" x="200" y="0.0" width="80" height="80"/>
+                                        <state key="normal" backgroundImage="Layout3"/>
+                                        <state key="selected" image="Selected" backgroundImage="Layout3"/>
+                                        <connections>
+                                            <action selector="didTapSelectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Iyo-ZT-Top"/>
-                                    <constraint firstAttribute="height" constant="67" id="JkW-BZ-fG6">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="73"/>
+                                    <constraint firstAttribute="width" constant="280" id="OcE-Nl-cSO">
+                                        <variation key="heightClass=compact" constant="80"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="660"/>
                                     </constraint>
-                                    <constraint firstAttribute="width" constant="220" id="Spg-Tp-fwi"/>
-                                    <constraint firstAttribute="width" constant="220" id="pAn-Ww-srY">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="260"/>
+                                    <constraint firstAttribute="height" constant="80" id="mRx-na-Ocj">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
+                                <variation key="heightClass=compact" axis="vertical">
                                     <mask key="constraints">
-                                        <exclude reference="Iyo-ZT-Top"/>
-                                        <exclude reference="Spg-Tp-fwi"/>
+                                        <exclude reference="mRx-na-Ocj"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="Iyo-ZT-Top"/>
-                                        <exclude reference="JkW-BZ-fG6"/>
-                                        <include reference="Spg-Tp-fwi"/>
-                                        <exclude reference="pAn-Ww-srY"/>
-                                    </mask>
-                                </variation>
-                            </label>
+                                <variation key="heightClass=regular-widthClass=regular" spacing="150"/>
+                                <connections>
+                                    <outlet property="selectionGridImagesCenterTopLeftBottomRightBottomButton" destination="03T-Tq-ngc" id="Zfj-do-Mjm"/>
+                                    <outlet property="selectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="Mch-Ih-sL1" id="hAu-xG-VtM"/>
+                                    <outlet property="selectionGridImagesLeftTopRightTopCenterBottomButton" destination="dyE-Nr-Zap" id="thk-i6-QsC"/>
+                                </connections>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -630,6 +626,13 @@
                                 <exclude reference="ZSm-Z4-KZr"/>
                                 <exclude reference="yQX-DP-eZP"/>
                                 <exclude reference="zdc-lS-eCt"/>
+                                <exclude reference="Sph-hZ-FlR"/>
+                                <exclude reference="dkx-Cb-wCO"/>
+                                <exclude reference="4BH-Do-yoi"/>
+                                <exclude reference="bx6-ST-bMn"/>
+                                <exclude reference="fFO-QI-ilG"/>
+                                <exclude reference="nUm-1q-Cw4"/>
+                                <exclude reference="wek-F5-HuN"/>
                                 <exclude reference="0cJ-j6-nqQ"/>
                                 <exclude reference="Aas-1K-lv2"/>
                                 <exclude reference="BXu-3W-m4v"/>
@@ -642,13 +645,6 @@
                                 <exclude reference="eXz-qX-uJo"/>
                                 <exclude reference="tZV-OU-wa9"/>
                                 <exclude reference="vhk-Yd-dmb"/>
-                                <exclude reference="Sph-hZ-FlR"/>
-                                <exclude reference="dkx-Cb-wCO"/>
-                                <exclude reference="4BH-Do-yoi"/>
-                                <exclude reference="bx6-ST-bMn"/>
-                                <exclude reference="fFO-QI-ilG"/>
-                                <exclude reference="nUm-1q-Cw4"/>
-                                <exclude reference="wek-F5-HuN"/>
                                 <exclude reference="CK5-uM-p0b"/>
                                 <exclude reference="K62-W2-ae7"/>
                                 <exclude reference="Ntr-4x-RmH"/>
@@ -659,8 +655,8 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="subviews">
-                                <include reference="K24-ug-ALY"/>
                                 <exclude reference="7AU-58-lcT"/>
+                                <include reference="K24-ug-ALY"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="6dX-qX-i86"/>
@@ -671,6 +667,9 @@
                                 <exclude reference="sGa-1f-Unq"/>
                                 <exclude reference="yQX-DP-eZP"/>
                                 <exclude reference="zdc-lS-eCt"/>
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="Sph-hZ-FlR"/>
+                                <exclude reference="DfI-mo-Qf6"/>
                                 <include reference="0cJ-j6-nqQ"/>
                                 <include reference="DQ6-Vq-XTE"/>
                                 <exclude reference="Yco-MN-l3w"/>
@@ -678,9 +677,6 @@
                                 <exclude reference="bGt-gD-MZ2"/>
                                 <exclude reference="eXz-qX-uJo"/>
                                 <exclude reference="vhk-Yd-dmb"/>
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="Sph-hZ-FlR"/>
-                                <exclude reference="DfI-mo-Qf6"/>
                                 <include reference="CK5-uM-p0b"/>
                                 <exclude reference="Ru4-En-hlG"/>
                                 <exclude reference="SMS-cD-bki"/>
@@ -695,6 +691,12 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="dkx-Cb-wCO"/>
+                                <exclude reference="4BH-Do-yoi"/>
+                                <exclude reference="bx6-ST-bMn"/>
+                                <exclude reference="nUm-1q-Cw4"/>
+                                <include reference="wek-F5-HuN"/>
                                 <include reference="Aas-1K-lv2"/>
                                 <include reference="BXu-3W-m4v"/>
                                 <exclude reference="IJl-3P-l5Z"/>
@@ -706,12 +708,6 @@
                                 <include reference="dat-DX-Cpk"/>
                                 <exclude reference="tZV-OU-wa9"/>
                                 <exclude reference="y9d-J9-Hj7"/>
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="dkx-Cb-wCO"/>
-                                <exclude reference="4BH-Do-yoi"/>
-                                <exclude reference="bx6-ST-bMn"/>
-                                <exclude reference="nUm-1q-Cw4"/>
-                                <include reference="wek-F5-HuN"/>
                                 <include reference="K62-W2-ae7"/>
                                 <exclude reference="Ntr-4x-RmH"/>
                                 <exclude reference="ffk-oG-Owe"/>

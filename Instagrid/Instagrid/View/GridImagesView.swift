@@ -61,26 +61,4 @@ class GridImagesView: UIView {
             addPhotoCenterBottomButton.isHidden = true
         }
     }
-    
-    func setColorAddPhotoButtonInModePortrait() {
-        addPhotoCenterTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-        addPhotoLeftBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-        addPhotoRightBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-        addPhotoLeftTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-        addPhotoRightTopButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-        addPhotoCenterBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-        addPhotoLeftBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-        addPhotoRightBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoPortrait"), for: .normal)
-    }
-    
-    func setColorAddPhotoButtonInModeLandscape() {
-        addPhotoCenterTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-        addPhotoLeftBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-        addPhotoRightBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-        addPhotoLeftTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-        addPhotoRightTopButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-        addPhotoCenterBottomButton.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-        addPhotoLeftBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-        addPhotoRightBottomForWindowGrid.setImage(#imageLiteral(resourceName: "AddPhotoLandscape"), for: .normal)
-    }
 }

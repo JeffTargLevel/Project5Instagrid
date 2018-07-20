@@ -20,17 +20,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet var addPhotoRightBottomForWindowGridButton: [UIButton]!
     
     private var selectFirstImage: UIButton?
-    private var selectSecondImage: UIButton?
-    
+    private var addSecondImage: UIButton?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name:
-            NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         showAtStartup()
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
         gridImagesView.addGestureRecognizer(panGestureRecognizer)
-        
     }
     
     private func showAtStartup() {
@@ -56,31 +53,31 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func didTapAnyAddPhotoCenterButtons() {
         selectImagePicker()
         selectFirstImage = anyAddPhotoCenterButtons[0]
-        selectSecondImage = anyAddPhotoCenterButtons[1]
+        addSecondImage = anyAddPhotoCenterButtons[1]
     }
     
     @IBAction func didTapAnyAddPhotoRightButtons() {
         selectImagePicker()
         selectFirstImage = anyAddPhotoRightButtons[0]
-        selectSecondImage = anyAddPhotoRightButtons[1]
+        addSecondImage = anyAddPhotoRightButtons[1]
     }
     
     @IBAction func didTapAnyAddPhotoLeftButtons() {
         selectImagePicker()
         selectFirstImage = anyAddPhotoLeftButtons[0]
-        selectSecondImage = anyAddPhotoLeftButtons[1]
+        addSecondImage = anyAddPhotoLeftButtons[1]
     }
     
     @IBAction func didTapAddPhotoLeftBottomForWindowGridButton() {
         selectImagePicker()
         selectFirstImage = addPhotoLeftBottomForWindowGridButton[0]
-        selectSecondImage = anyAddPhotoLeftButtons[1]
+        addSecondImage = anyAddPhotoLeftButtons[1]
     }
     
     @IBAction func didTapAddPhotoRightBottomForWindowGridButton() {
         selectImagePicker()
         selectFirstImage = addPhotoRightBottomForWindowGridButton[0]
-        selectSecondImage = anyAddPhotoRightButtons[1]
+        addSecondImage = anyAddPhotoRightButtons[1]
     }
     
     private func selectImagePicker() {
@@ -93,14 +90,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             selectFirstImage?.imageView?.contentMode = .scaleAspectFill
-            selectSecondImage?.imageView?.contentMode = .scaleAspectFill
+            addSecondImage?.imageView?.contentMode = .scaleAspectFill
             selectFirstImage?.setImage(pickedImage, for: .normal)
-            selectSecondImage?.setImage(pickedImage, for: .normal)
+            addSecondImage?.setImage(pickedImage, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
-    @objc func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
+    @objc private func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
             transformGridImagesViewWith(gesture: sender)
@@ -144,19 +141,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         present(shareScoreWriteWithText, animated: true, completion: nil)
     }
     
-    func shakeForBadSwipe() {
+    private func shakeForBadSwipe() {
         gridImagesView.shake()
         gridImagesView.transform = .identity
-    }
-    
-    @objc func rotated() {
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            gridImagesView.setColorAddPhotoButtonInModeLandscape()
-        }
-        
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            gridImagesView.setColorAddPhotoButtonInModePortrait()
-        }
     }
 }
 
