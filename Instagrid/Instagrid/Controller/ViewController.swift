@@ -137,8 +137,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     private func shareGridImagesView() {
         let gridImages = UIImage(view: gridImagesView)
-        let shareScoreWriteWithText = UIActivityViewController(activityItems: [gridImages], applicationActivities: nil)
-        present(shareScoreWriteWithText, animated: true, completion: nil)
+        let shareGridImages = UIActivityViewController(activityItems: [gridImages], applicationActivities: nil)
+        present(shareGridImages, animated: true, completion: nil)
     }
     
     private func shakeForBadSwipe() {
