@@ -114,10 +114,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         var transform = translationTransform
         gridImagesView.transform = transform
         
+        
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            if translation.y < -70 {
+            if translation.y < -70 && gridImagesView.isComplete {
                 shareGridImagesView()
-            } else if translation.y > 0 {
+            } else if gridImagesView.isComplete == false {
                 shakeForBadSwipe()
             }
         }
@@ -127,9 +128,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             transform = translationTransform
             gridImagesView.transform = transform
             
-            if translation.x < -180 {
+            if translation.x < -180 && gridImagesView.isComplete {
                 shareGridImagesView()
-            } else if translation.x > 0 {
+            } else if gridImagesView.isComplete == false {
                 shakeForBadSwipe()
             }
         }

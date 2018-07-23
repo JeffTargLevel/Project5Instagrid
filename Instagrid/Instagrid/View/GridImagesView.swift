@@ -19,6 +19,10 @@ class GridImagesView: UIView {
     @IBOutlet private var addPhotoLeftBottomForWindowGrid: UIButton!
     @IBOutlet private var addPhotoRightBottomForWindowGrid: UIButton!
     
+    var isComplete: Bool {
+       return addPhotoCenterTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoCenterBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") 
+    }
+
     enum Layout {
         case centerTopLeftBottomRightBottom, leftTopRightTopCenterBottom, leftRightTopAndleftRightBottom
     }

@@ -50,7 +50,6 @@
                                     <constraint firstAttribute="height" constant="67" id="JkW-BZ-fG6">
                                         <variation key="heightClass=regular-widthClass=regular" constant="73"/>
                                     </constraint>
-                                    <constraint firstAttribute="width" constant="220" id="Spg-Tp-fwi"/>
                                     <constraint firstAttribute="width" constant="302" id="j3w-Pg-uKJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
@@ -59,14 +58,12 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Iyo-ZT-Top"/>
-                                        <exclude reference="Spg-Tp-fwi"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
                                         <include reference="Iyo-ZT-Top"/>
                                         <exclude reference="JkW-BZ-fG6"/>
-                                        <include reference="Spg-Tp-fwi"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -516,7 +513,7 @@
                                     <outlet property="addPhotoRightTopButton" destination="g1Y-Kc-YqC" id="gxG-K9-HWK"/>
                                 </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionGridImages" customModule="Instagrid" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionGridImages" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="47.5" y="567" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
@@ -550,7 +547,7 @@
                                         <variation key="heightClass=regular-widthClass=regular" constant="660"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="80" id="mRx-na-Ocj">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                                     </constraint>
                                 </constraints>
                                 <variation key="heightClass=compact" axis="vertical">
@@ -558,7 +555,7 @@
                                         <exclude reference="mRx-na-Ocj"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=regular" spacing="150"/>
+                                <variation key="heightClass=regular-widthClass=regular" spacing="209"/>
                                 <connections>
                                     <outlet property="selectionGridImagesCenterTopLeftBottomRightBottomButton" destination="03T-Tq-ngc" id="Zfj-do-Mjm"/>
                                     <outlet property="selectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="Mch-Ih-sL1" id="hAu-xG-VtM"/>
@@ -626,13 +623,13 @@
                                 <exclude reference="ZSm-Z4-KZr"/>
                                 <exclude reference="yQX-DP-eZP"/>
                                 <exclude reference="zdc-lS-eCt"/>
-                                <exclude reference="Sph-hZ-FlR"/>
-                                <exclude reference="dkx-Cb-wCO"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <exclude reference="bx6-ST-bMn"/>
                                 <exclude reference="fFO-QI-ilG"/>
                                 <exclude reference="nUm-1q-Cw4"/>
                                 <exclude reference="wek-F5-HuN"/>
+                                <exclude reference="Sph-hZ-FlR"/>
+                                <exclude reference="dkx-Cb-wCO"/>
                                 <exclude reference="0cJ-j6-nqQ"/>
                                 <exclude reference="Aas-1K-lv2"/>
                                 <exclude reference="BXu-3W-m4v"/>
@@ -667,9 +664,9 @@
                                 <exclude reference="sGa-1f-Unq"/>
                                 <exclude reference="yQX-DP-eZP"/>
                                 <exclude reference="zdc-lS-eCt"/>
+                                <exclude reference="DfI-mo-Qf6"/>
                                 <exclude reference="9ac-C6-RVE"/>
                                 <include reference="Sph-hZ-FlR"/>
-                                <exclude reference="DfI-mo-Qf6"/>
                                 <include reference="0cJ-j6-nqQ"/>
                                 <include reference="DQ6-Vq-XTE"/>
                                 <exclude reference="Yco-MN-l3w"/>
@@ -691,12 +688,12 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="dkx-Cb-wCO"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <exclude reference="bx6-ST-bMn"/>
                                 <exclude reference="nUm-1q-Cw4"/>
                                 <include reference="wek-F5-HuN"/>
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="dkx-Cb-wCO"/>
                                 <include reference="Aas-1K-lv2"/>
                                 <include reference="BXu-3W-m4v"/>
                                 <exclude reference="IJl-3P-l5Z"/>
