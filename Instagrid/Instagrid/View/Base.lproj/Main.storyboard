@@ -225,7 +225,7 @@
                                             <action selector="didTapAnyAddPhotoCenterButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2z-af-PFC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
                                         <rect key="frame" x="8" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -294,7 +294,7 @@
                                             <action selector="didTapAnyAddPhotoRightButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mcs-hn-fpr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-FZ-QDn" userLabel="Button Add Photo left Bottom for window grid">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-FZ-QDn" userLabel="Button Add Photo left Bottom for window grid">
                                         <rect key="frame" x="8" y="154" width="140" height="140"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>

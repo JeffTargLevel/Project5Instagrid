@@ -19,18 +19,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet var addPhotoLeftBottomForWindowGridButton: [UIButton]!
     @IBOutlet var addPhotoRightBottomForWindowGridButton: [UIButton]!
     
-    private var selectFirstImage: UIButton?
-    private var addSecondImage: UIButton?
+    private var selectFirstImageButton: UIButton?
+    private var selectSecondImageButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        showAtStartup()
-        
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
-        gridImagesView.addGestureRecognizer(panGestureRecognizer)
+        setupUI()
+        recognizeTheGesture()
     }
     
-    private func showAtStartup() {
+    private func setupUI() {
         gridImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
         selectionGridImages.showTheSelectedButtonAtStartup()
     }
@@ -49,38 +47,38 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         gridImagesView.setLayout(.leftRightTopAndleftRightBottom)
         selectionGridImages.selectGridImagesLeftRightTopAndLeftRightBottom()
     }
-    
+
     @IBAction func didTapAnyAddPhotoCenterButtons() {
-        selectImagePicker()
-        selectFirstImage = anyAddPhotoCenterButtons[0]
-        addSecondImage = anyAddPhotoCenterButtons[1]
+        openImagePicker()
+        selectFirstImageButton = anyAddPhotoCenterButtons[0]
+        selectSecondImageButton = anyAddPhotoCenterButtons[1]
     }
     
     @IBAction func didTapAnyAddPhotoRightButtons() {
-        selectImagePicker()
-        selectFirstImage = anyAddPhotoRightButtons[0]
-        addSecondImage = anyAddPhotoRightButtons[1]
+        openImagePicker()
+        selectFirstImageButton = anyAddPhotoRightButtons[0]
+        selectSecondImageButton = anyAddPhotoRightButtons[1]
     }
     
     @IBAction func didTapAnyAddPhotoLeftButtons() {
-        selectImagePicker()
-        selectFirstImage = anyAddPhotoLeftButtons[0]
-        addSecondImage = anyAddPhotoLeftButtons[1]
+        openImagePicker()
+        selectFirstImageButton = anyAddPhotoLeftButtons[0]
+        selectSecondImageButton = anyAddPhotoLeftButtons[1]
     }
     
     @IBAction func didTapAddPhotoLeftBottomForWindowGridButton() {
-        selectImagePicker()
-        selectFirstImage = addPhotoLeftBottomForWindowGridButton[0]
-        addSecondImage = anyAddPhotoLeftButtons[1]
+        openImagePicker()
+        selectFirstImageButton = addPhotoLeftBottomForWindowGridButton[0]
+        selectSecondImageButton = anyAddPhotoLeftButtons[1]
     }
     
     @IBAction func didTapAddPhotoRightBottomForWindowGridButton() {
-        selectImagePicker()
-        selectFirstImage = addPhotoRightBottomForWindowGridButton[0]
-        addSecondImage = anyAddPhotoRightButtons[1]
+        openImagePicker()
+        selectFirstImageButton = addPhotoRightBottomForWindowGridButton[0]
+        selectSecondImageButton = anyAddPhotoRightButtons[1]
     }
     
-    private func selectImagePicker() {
+    private func openImagePicker() {
         let imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -89,12 +87,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            selectFirstImage?.imageView?.contentMode = .scaleAspectFill
-            addSecondImage?.imageView?.contentMode = .scaleAspectFill
-            selectFirstImage?.setImage(pickedImage, for: .normal)
-            addSecondImage?.setImage(pickedImage, for: .normal)
+            selectFirstImageButton?.setImage(pickedImage, for: .normal)
+            selectSecondImageButton?.setImage(pickedImage, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    private func recognizeTheGesture() {
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
+        gridImagesView.addGestureRecognizer(panGestureRecognizer)
     }
     
     @objc private func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
