@@ -10,14 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    @IBOutlet weak var gridImagesView: GridImagesView!
-    @IBOutlet weak var selectionGridImages: SelectionGridImages!
+    @IBOutlet weak var layoutImagesView: LayoutImagesView!
+    @IBOutlet weak var selectionLayoutImages: SelectionLayoutImages!
     
     @IBOutlet var anyAddPhotoCenterButtons: [UIButton]!
     @IBOutlet var anyAddPhotoRightButtons: [UIButton]!
     @IBOutlet var anyAddPhotoLeftButtons: [UIButton]!
-    @IBOutlet var addPhotoLeftBottomForWindowGridButton: [UIButton]!
-    @IBOutlet var addPhotoRightBottomForWindowGridButton: [UIButton]!
+    @IBOutlet var addPhotoLeftBottomForLayout2X2Button: [UIButton]!
+    @IBOutlet var addPhotoRightBottomForLayout2X2Button: [UIButton]!
     
     private var selectFirstImageButton: UIButton?
     private var selectSecondImageButton: UIButton?
@@ -29,25 +29,29 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     private func setupUI() {
-        gridImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
-        selectionGridImages.showTheSelectedButtonAtStartup()
+        layoutImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
+        selectionLayoutImages.showTheSelectedButtonAtStartup()
     }
     
-    @IBAction func didTapSelectionGridImagesCenterTopLeftBottomRightBottomButton() {
-        gridImagesView.setLayout(.centerTopLeftBottomRightBottom)
-        selectionGridImages.selectGridImagesCenterTopLeftBottomRightBottom()
+//MARK: - Select layout
+    
+    @IBAction func didTapSelectLayout1X2Button() {
+        layoutImagesView.setLayout(.centerTopLeftBottomRightBottom)
+        selectionLayoutImages.selectGridImagesCenterTopLeftBottomRightBottom()
     }
     
-    @IBAction func didTapSelectionGridImagesLeftTopRightTopCenterBottomButton() {
-        gridImagesView.setLayout(.leftTopRightTopCenterBottom)
-        selectionGridImages.selectGridImagesLeftTopRightTopCenterBottom()
+    @IBAction func didTapSelectLayout2X1Button() {
+        layoutImagesView.setLayout(.leftTopRightTopCenterBottom)
+        selectionLayoutImages.selectGridImagesLeftTopRightTopCenterBottom()
     }
     
-    @IBAction func didTapSelectionGridImagesLeftRightTopAndLeftRightBottomButton() {
-        gridImagesView.setLayout(.leftRightTopAndleftRightBottom)
-        selectionGridImages.selectGridImagesLeftRightTopAndLeftRightBottom()
+    @IBAction func didTapSelectLayout2X2Button() {
+        layoutImagesView.setLayout(.leftRightTopAndleftRightBottom)
+        selectionLayoutImages.selectGridImagesLeftRightTopAndLeftRightBottom()
     }
-
+    
+//MARK: - Add photo with button
+    
     @IBAction func didTapAnyAddPhotoCenterButtons() {
         openImagePicker()
         selectFirstImageButton = anyAddPhotoCenterButtons[0]
@@ -66,17 +70,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         selectSecondImageButton = anyAddPhotoLeftButtons[1]
     }
     
-    @IBAction func didTapAddPhotoLeftBottomForWindowGridButton() {
+    @IBAction func didTapAddPhotoLeftBottomForLayout2X2Button() {
         openImagePicker()
-        selectFirstImageButton = addPhotoLeftBottomForWindowGridButton[0]
+        selectFirstImageButton = addPhotoLeftBottomForLayout2X2Button[0]
         selectSecondImageButton = anyAddPhotoLeftButtons[1]
     }
     
-    @IBAction func didTapAddPhotoRightBottomForWindowGridButton() {
+    @IBAction func didTapAddPhotoRightBottomForLayout2X2Button() {
         openImagePicker()
-        selectFirstImageButton = addPhotoRightBottomForWindowGridButton[0]
+        selectFirstImageButton = addPhotoRightBottomForLayout2X2Button[0]
         selectSecondImageButton = anyAddPhotoRightButtons[1]
     }
+   
+//MARK: - Open photo library and pick photo
     
     private func openImagePicker() {
         let imagePicker =  UIImagePickerController()
@@ -93,32 +99,34 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         picker.dismiss(animated: true, completion: nil)
     }
     
+//MARK: - Transform layout images view with gesture
+    
     private func recognizeTheGesture() {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
-        gridImagesView.addGestureRecognizer(panGestureRecognizer)
+        layoutImagesView.addGestureRecognizer(panGestureRecognizer)
     }
     
     @objc private func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
-            transformGridImagesViewWith(gesture: sender)
+            transformLayoutImagesViewWith(gesture: sender)
         case .ended, .cancelled:
-            gridImagesView.transform = .identity
+            layoutImagesView.transform = .identity
         default:
             break
         }
     }
     
-    private func transformGridImagesViewWith(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: gridImagesView)
+    func transformLayoutImagesViewWith(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: layoutImagesView)
         var translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
         var transform = translationTransform
-        gridImagesView.transform = transform
+        layoutImagesView.transform = transform
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            if translation.y < -70 && gridImagesView.isComplete {
-                shareGridImagesView()
-            } else if translation.y > 0 || gridImagesView.isComplete == false {
+            if translation.y < -70 && layoutImagesView.isComplete {
+                shareLayoutImagesView()
+            } else if translation.y > 0 || !layoutImagesView.isComplete {
                 shakeForBadSwipe()
             }
         }
@@ -126,25 +134,29 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
             translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
             transform = translationTransform
-            gridImagesView.transform = transform
+            layoutImagesView.transform = transform
             
-            if translation.x < -180 && gridImagesView.isComplete {
-                shareGridImagesView()
-            } else if translation.x > 0 || gridImagesView.isComplete == false {
+            if translation.x < -180 && layoutImagesView.isComplete {
+                shareLayoutImagesView()
+            } else if translation.x > 0 || !layoutImagesView.isComplete {
                 shakeForBadSwipe()
             }
         }
     }
     
-    private func shareGridImagesView() {
-        let gridImages = UIImage(view: gridImagesView)
-        let shareGridImages = UIActivityViewController(activityItems: [gridImages], applicationActivities: nil)
-        present(shareGridImages, animated: true, completion: nil)
+//MARK: - Share layout images view with app
+    
+    private func shareLayoutImagesView() {
+        let layoutImages = UIImage(view: layoutImagesView)
+        let shareLayoutImages = UIActivityViewController(activityItems: [layoutImages], applicationActivities: nil)
+        present(shareLayoutImages, animated: true, completion: nil)
     }
     
+//MARK: - Shake the layout images view for a bad swipe
+    
     private func shakeForBadSwipe() {
-        gridImagesView.shake()
-        gridImagesView.transform = .identity
+        layoutImagesView.shake()
+        layoutImagesView.transform = .identity
     }
 }
 

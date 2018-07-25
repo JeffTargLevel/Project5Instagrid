@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GridImagesView: UIView {
+class LayoutImagesView: UIView {
 
     @IBOutlet private var addPhotoCenterTopButton: UIButton!
     @IBOutlet private var addPhotoRightTopButton: UIButton!
@@ -16,8 +16,8 @@ class GridImagesView: UIView {
     @IBOutlet private var addPhotoCenterBottomButton: UIButton!
     @IBOutlet private var addPhotoLeftBottomButton: UIButton!
     @IBOutlet private var addPhotoRightBottomButton: UIButton!
-    @IBOutlet private var addPhotoLeftBottomForWindowGrid: UIButton!
-    @IBOutlet private var addPhotoRightBottomForWindowGrid: UIButton!
+    @IBOutlet private var addPhotoLeftBottomForLayout2X2Button: UIButton!
+    @IBOutlet private var addPhotoRightBottomForLayout2X2Button: UIButton!
     
     var isComplete: Bool {
        return addPhotoCenterTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoCenterBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") 
@@ -42,8 +42,9 @@ class GridImagesView: UIView {
             addPhotoLeftTopButton.isHidden = true
             addPhotoRightTopButton.isHidden = true
             addPhotoCenterBottomButton.isHidden = true
-            addPhotoLeftBottomForWindowGrid.isHidden = true
-            addPhotoRightBottomForWindowGrid.isHidden = true
+            addPhotoLeftBottomForLayout2X2Button.isHidden = true
+            addPhotoRightBottomForLayout2X2Button.isHidden = true
+            
         case .leftTopRightTopCenterBottom:
             addPhotoLeftTopButton.isHidden = false
             addPhotoRightTopButton.isHidden = false
@@ -51,14 +52,14 @@ class GridImagesView: UIView {
             addPhotoCenterTopButton.isHidden = true
             addPhotoLeftBottomButton.isHidden = true
             addPhotoRightBottomButton.isHidden = true
-            addPhotoLeftBottomForWindowGrid.isHidden = true
-            addPhotoRightBottomForWindowGrid.isHidden = true
+            addPhotoLeftBottomForLayout2X2Button.isHidden = true
+            addPhotoRightBottomForLayout2X2Button.isHidden = true
             
         case .leftRightTopAndleftRightBottom:
             addPhotoLeftTopButton.isHidden = false
             addPhotoRightTopButton.isHidden = false
-            addPhotoLeftBottomForWindowGrid.isHidden = false
-            addPhotoRightBottomForWindowGrid.isHidden = false
+            addPhotoLeftBottomForLayout2X2Button.isHidden = false
+            addPhotoRightBottomForLayout2X2Button.isHidden = false
             addPhotoLeftBottomButton.isHidden = true
             addPhotoRightBottomButton.isHidden = true
             addPhotoCenterTopButton.isHidden = true

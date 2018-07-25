@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
-import MobileCoreServices
 
-class PhotoManagement {
+
+class LayoutImagesManager {
+
     
     
     

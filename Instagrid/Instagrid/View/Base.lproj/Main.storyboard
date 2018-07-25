@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -23,11 +20,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-Wc-Ldo" userLabel="Instagrid Logo">
-                                <rect key="frame" x="130" y="25" width="115" height="30"/>
+                                <rect key="frame" x="242.5" y="25" width="115" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="sHf-wc-T68">
                                         <variation key="heightClass=regular-widthClass=regular" constant="53"/>
@@ -44,7 +41,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇧ Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AU-58-lcT">
-                                <rect key="frame" x="36.5" y="110.5" width="302" height="67"/>
+                                <rect key="frame" x="149" y="77" width="302" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Iyo-ZT-Top"/>
                                     <constraint firstAttribute="height" constant="67" id="JkW-BZ-fG6">
@@ -92,8 +89,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="GridImagesView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="36.5" y="182.5" width="302" height="302"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="LayoutImagesView" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="149" y="149" width="302" height="302"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-zC-Qxk" userLabel="Button Add Photo Center Top">
                                         <rect key="frame" x="8" y="8" width="286" height="140"/>
@@ -325,7 +322,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoLeftBottomForWindowGridButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEy-GD-C4D"/>
+                                            <action selector="didTapAddPhotoLeftBottomForLayout2X2Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEy-GD-C4D"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-dy-jlu" userLabel="Button Add Photo Right Bottom for window grid">
@@ -361,7 +358,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="didTapAddPhotoRightBottomForWindowGridButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="uEy-EH-3Tu"/>
+                                            <action selector="didTapAddPhotoRightBottomForLayout2X2Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="uEy-EH-3Tu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -506,22 +503,22 @@
                                     <outlet property="addPhotoCenterBottomButton" destination="vCW-Mv-RWu" id="IJd-7d-o7K"/>
                                     <outlet property="addPhotoCenterTopButton" destination="mDr-zC-Qxk" id="e3S-od-KyN"/>
                                     <outlet property="addPhotoLeftBottomButton" destination="fQT-dH-RCf" id="kKg-8h-N1G"/>
-                                    <outlet property="addPhotoLeftBottomForWindowGrid" destination="hWa-FZ-QDn" id="gXP-a1-w3d"/>
+                                    <outlet property="addPhotoLeftBottomForLayout2X2Button" destination="hWa-FZ-QDn" id="gXP-a1-w3d"/>
                                     <outlet property="addPhotoLeftTopButton" destination="FUp-zN-bh4" id="qMW-ZJ-fEN"/>
                                     <outlet property="addPhotoRightBottomButton" destination="iq2-1h-prV" id="A7X-qF-p4y"/>
-                                    <outlet property="addPhotoRightBottomForWindowGrid" destination="poG-dy-jlu" id="USv-Cq-fbR"/>
+                                    <outlet property="addPhotoRightBottomForLayout2X2Button" destination="poG-dy-jlu" id="USv-Cq-fbR"/>
                                     <outlet property="addPhotoRightTopButton" destination="g1Y-Kc-YqC" id="gxG-K9-HWK"/>
                                 </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionGridImages" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="47.5" y="567" width="280" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionLayoutImages" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="160" y="500" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout1"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout1"/>
                                         <connections>
-                                            <action selector="didTapSelectionGridImagesCenterTopLeftBottomRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
+                                            <action selector="didTapSelectLayout1X2Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="EBR-Vs-Iaq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-Nr-Zap" userLabel="Button Select View 2">
@@ -529,7 +526,7 @@
                                         <state key="normal" backgroundImage="Layout2"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout2"/>
                                         <connections>
-                                            <action selector="didTapSelectionGridImagesLeftTopRightTopCenterBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
+                                            <action selector="didTapSelectLayout2X1Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tft-yr-flS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-Ih-sL1" userLabel="Button Select View 3">
@@ -537,7 +534,7 @@
                                         <state key="normal" backgroundImage="Layout3"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout3"/>
                                         <connections>
-                                            <action selector="didTapSelectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
+                                            <action selector="didTapSelectLayout2X2Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="KfW-WR-HRW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -557,9 +554,9 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" spacing="209"/>
                                 <connections>
-                                    <outlet property="selectionGridImagesCenterTopLeftBottomRightBottomButton" destination="03T-Tq-ngc" id="Zfj-do-Mjm"/>
-                                    <outlet property="selectionGridImagesLeftRightTopAndLeftRightBottomButton" destination="Mch-Ih-sL1" id="hAu-xG-VtM"/>
-                                    <outlet property="selectionGridImagesLeftTopRightTopCenterBottomButton" destination="dyE-Nr-Zap" id="thk-i6-QsC"/>
+                                    <outlet property="selectLayout1X2Button" destination="03T-Tq-ngc" id="Zfj-do-Mjm"/>
+                                    <outlet property="selectLayout2X1Button" destination="dyE-Nr-Zap" id="thk-i6-QsC"/>
+                                    <outlet property="selectLayout2X2Button" destination="Mch-Ih-sL1" id="hAu-xG-VtM"/>
                                 </connections>
                             </stackView>
                         </subviews>
@@ -712,16 +709,16 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="gridImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
-                        <outlet property="selectionGridImages" destination="knL-3n-iA9" id="qZp-pb-rnK"/>
+                        <outlet property="layoutImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
+                        <outlet property="selectionLayoutImages" destination="knL-3n-iA9" id="qZp-pb-rnK"/>
                         <outletCollection property="anyAddPhotoCenterButtons" destination="mDr-zC-Qxk" collectionClass="NSMutableArray" id="rTo-Lv-h3Z"/>
                         <outletCollection property="anyAddPhotoCenterButtons" destination="vCW-Mv-RWu" collectionClass="NSMutableArray" id="lUG-RI-J2p"/>
                         <outletCollection property="anyAddPhotoRightButtons" destination="g1Y-Kc-YqC" collectionClass="NSMutableArray" id="XbH-Tb-13z"/>
                         <outletCollection property="anyAddPhotoRightButtons" destination="iq2-1h-prV" collectionClass="NSMutableArray" id="eU8-e5-eJU"/>
                         <outletCollection property="anyAddPhotoLeftButtons" destination="FUp-zN-bh4" collectionClass="NSMutableArray" id="TnX-Vd-8DA"/>
                         <outletCollection property="anyAddPhotoLeftButtons" destination="fQT-dH-RCf" collectionClass="NSMutableArray" id="lEg-Sp-yb7"/>
-                        <outletCollection property="addPhotoLeftBottomForWindowGridButton" destination="hWa-FZ-QDn" collectionClass="NSMutableArray" id="4ha-3M-Bk3"/>
-                        <outletCollection property="addPhotoRightBottomForWindowGridButton" destination="poG-dy-jlu" collectionClass="NSMutableArray" id="8rm-AA-Hyg"/>
+                        <outletCollection property="addPhotoLeftBottomForLayout2X2Button" destination="hWa-FZ-QDn" collectionClass="NSMutableArray" id="4ha-3M-Bk3"/>
+                        <outletCollection property="addPhotoRightBottomForLayout2X2Button" destination="poG-dy-jlu" collectionClass="NSMutableArray" id="8rm-AA-Hyg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
