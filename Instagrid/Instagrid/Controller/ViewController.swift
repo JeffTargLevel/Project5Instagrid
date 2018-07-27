@@ -40,13 +40,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @objc private func setStatusSwipeLabel() {
+        
         if !layoutImagesView.isReadyForTheShare {
-            swipeUpToShareLabel.text = "Add your photos"
-            swipeLeftToShareLabel.text = "Add your photos"
+            DispatchQueue.main.async {
+                self.swipeUpToShareLabel.text = "Add your photos"
+                self.swipeLeftToShareLabel.text = "Add your photos"
+            }
         } else {
-            swipeUpToShareLabel.text = "⇧\nSwipe up to share"
-            swipeLeftToShareLabel.text = "⇦\nSwipe left to share"
+            DispatchQueue.main.async {
+                self.swipeUpToShareLabel.text = "⇧\nSwipe up to share"
+                self.swipeLeftToShareLabel.text = "⇦\nSwipe left to share"
+            }
         }
+        
     }
     
 //MARK: - Select layout
@@ -143,7 +149,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             
             if translation.y < -70 && layoutImagesView.isReadyForTheShare {
-                animateLayoutViewForTheShare()
+                animateLayoutViewForSwipeUpToShare()
                 shareLayoutImagesView()
             } else if translation.y > 0 || !layoutImagesView.isReadyForTheShare {
                 shakeForBadSwipe()
@@ -156,6 +162,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             layoutImagesView.transform = transform
             
             if translation.x < -180 && layoutImagesView.isReadyForTheShare {
+                animateLayoutViewForSwipeLeftToShare()
                 shareLayoutImagesView()
             } else if translation.x > 0 || !layoutImagesView.isReadyForTheShare {
                 shakeForBadSwipe()
@@ -165,7 +172,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
 //MARK: - Animation of the layout images view for the share
     
-    private func animateLayoutViewForTheShare() {
+    private func animateLayoutViewForSwipeUpToShare() {
         let screenHeight = UIScreen.main.bounds.height
         var translationTransform: CGAffineTransform
         translationTransform = CGAffineTransform(translationX: 0, y: screenHeight.distance(to: -300))
@@ -175,6 +182,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         })
     }
     
+    private func animateLayoutViewForSwipeLeftToShare() {
+        let screenWidth = UIScreen.main.bounds.width
+        var translationTransform: CGAffineTransform
+        translationTransform = CGAffineTransform(translationX: screenWidth.distance(to: 100), y: 0)
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.layoutImagesView.transform = translationTransform
+        })
+    }
 //MARK: - Share layout images view with app
     
     private func shareLayoutImagesView() {
