@@ -19,7 +19,7 @@ class LayoutImagesView: UIView {
     @IBOutlet private var addPhotoLeftBottomForLayout2X2Button: UIButton!
     @IBOutlet private var addPhotoRightBottomForLayout2X2Button: UIButton!
     
-    var isComplete: Bool {
+    var isReadyForTheShare: Bool {
        return addPhotoCenterTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoCenterBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") 
     }
 

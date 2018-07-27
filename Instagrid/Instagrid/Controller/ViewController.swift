@@ -13,11 +13,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var layoutImagesView: LayoutImagesView!
     @IBOutlet weak var selectionLayoutImages: SelectionLayoutImages!
     
+    @IBOutlet weak var swipeUpToShareLabel: UILabel!
+    @IBOutlet weak var swipeLeftToShareLabel: UILabel!
+    
     @IBOutlet var anyAddPhotoCenterButtons: [UIButton]!
     @IBOutlet var anyAddPhotoRightButtons: [UIButton]!
     @IBOutlet var anyAddPhotoLeftButtons: [UIButton]!
     @IBOutlet var addPhotoLeftBottomForLayout2X2Button: [UIButton]!
     @IBOutlet var addPhotoRightBottomForLayout2X2Button: [UIButton]!
+    
+    
     
     private var selectFirstImageButton: UIButton?
     private var selectSecondImageButton: UIButton?
@@ -32,6 +37,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         layoutImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
         selectionLayoutImages.showTheSelectedButtonAtStartup()
     }
+    
+    /*private func setStatusSwipeLabel() {
+        if !layoutImagesView.isComplete {
+            swipeUpToShareLabel.text = "Add your photos"
+        }
+    }*/
     
 //MARK: - Select layout
     
@@ -110,7 +121,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         switch sender.state {
         case .began, .changed:
             transformLayoutImagesViewWith(gesture: sender)
-        case .ended, .cancelled:
+       case .ended, .cancelled:
             layoutImagesView.transform = .identity
         default:
             break
@@ -119,29 +130,43 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func transformLayoutImagesViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: layoutImagesView)
-        var translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
-        var transform = translationTransform
-        layoutImagesView.transform = transform
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            if translation.y < -70 && layoutImagesView.isComplete {
+            let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
+            let transform = translationTransform
+            layoutImagesView.transform = transform
+            
+            if translation.y < -70 && layoutImagesView.isReadyForTheShare {
+                animateLayoutViewForTheShare()
                 shareLayoutImagesView()
-            } else if translation.y > 0 || !layoutImagesView.isComplete {
+            } else if translation.y > 0 || !layoutImagesView.isReadyForTheShare {
                 shakeForBadSwipe()
             }
         }
         
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
-            transform = translationTransform
+            let translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
+            let transform = translationTransform
             layoutImagesView.transform = transform
             
-            if translation.x < -180 && layoutImagesView.isComplete {
+            if translation.x < -180 && layoutImagesView.isReadyForTheShare {
                 shareLayoutImagesView()
-            } else if translation.x > 0 || !layoutImagesView.isComplete {
+            } else if translation.x > 0 || !layoutImagesView.isReadyForTheShare {
                 shakeForBadSwipe()
             }
         }
+    }
+    
+//MARK: - Animation of the layout images view for the share
+    
+    func animateLayoutViewForTheShare() {
+        let screenHeight = UIScreen.main.bounds.height
+        var translationTransform: CGAffineTransform
+        translationTransform = CGAffineTransform(translationX: 0, y: screenHeight.distance(to: -300))
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.layoutImagesView.transform = translationTransform
+        })
     }
     
 //MARK: - Share layout images view with app
