@@ -31,6 +31,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         super.viewDidLoad()
         setupUI()
         recognizeTheGesture()
+        NotificationCenter.default.addObserver(self, selector: #selector(setStatusSwipeLabel), name: nil, object: nil)
     }
     
     private func setupUI() {
@@ -38,11 +39,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         selectionLayoutImages.showTheSelectedButtonAtStartup()
     }
     
-    /*private func setStatusSwipeLabel() {
-        if !layoutImagesView.isComplete {
+    @objc private func setStatusSwipeLabel() {
+        if !layoutImagesView.isReadyForTheShare {
             swipeUpToShareLabel.text = "Add your photos"
+            swipeLeftToShareLabel.text = "Add your photos"
+        } else {
+            swipeUpToShareLabel.text = "⇧\nSwipe up to share"
+            swipeLeftToShareLabel.text = "⇦\nSwipe left to share"
         }
-    }*/
+    }
     
 //MARK: - Select layout
     
@@ -128,13 +133,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
-    func transformLayoutImagesViewWith(gesture: UIPanGestureRecognizer) {
+    private func transformLayoutImagesViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: layoutImagesView)
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
             let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
             let transform = translationTransform
             layoutImagesView.transform = transform
+            
             
             if translation.y < -70 && layoutImagesView.isReadyForTheShare {
                 animateLayoutViewForTheShare()
@@ -159,7 +165,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
 //MARK: - Animation of the layout images view for the share
     
-    func animateLayoutViewForTheShare() {
+    private func animateLayoutViewForTheShare() {
         let screenHeight = UIScreen.main.bounds.height
         var translationTransform: CGAffineTransform
         translationTransform = CGAffineTransform(translationX: 0, y: screenHeight.distance(to: -300))
