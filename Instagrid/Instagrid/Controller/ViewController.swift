@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var layoutImagesView: LayoutImagesView!
     @IBOutlet weak var selectionLayoutImages: SelectionLayoutImages!
@@ -30,8 +30,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setStatusSwipeLabel()
         recognizeTheGesture()
-        NotificationCenter.default.addObserver(self, selector: #selector(setStatusSwipeLabel), name: nil, object: nil)
     }
     
     private func setupUI() {
@@ -39,23 +39,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         selectionLayoutImages.showTheSelectedButtonAtStartup()
     }
     
-    @objc private func setStatusSwipeLabel() {
+    private func setStatusSwipeLabel() {
         
         if !layoutImagesView.isReadyForTheShare {
-            DispatchQueue.main.async {
-                self.swipeUpToShareLabel.text = "Add your photos"
-                self.swipeLeftToShareLabel.text = "Add your photos"
-            }
+            swipeUpToShareLabel.text = "Add your photos"
+            swipeLeftToShareLabel.text = "Add your photos"
         } else {
-            DispatchQueue.main.async {
-                self.swipeUpToShareLabel.text = "⇧\nSwipe up to share"
-                self.swipeLeftToShareLabel.text = "⇦\nSwipe left to share"
-            }
+            swipeUpToShareLabel.text = "⇧\nSwipe up to share"
+            swipeLeftToShareLabel.text = "⇦\nSwipe left to share"
         }
-        
     }
+}
     
 //MARK: - Select layout
+   
+extension ViewController {
     
     @IBAction func didTapSelectLayout1X2Button() {
         layoutImagesView.setLayout(.centerTopLeftBottomRightBottom)
@@ -71,8 +69,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         layoutImagesView.setLayout(.leftRightTopAndleftRightBottom)
         selectionLayoutImages.selectGridImagesLeftRightTopAndLeftRightBottom()
     }
+}
     
 //MARK: - Add photo with button
+
+extension ViewController {
     
     @IBAction func didTapAnyAddPhotoCenterButtons() {
         openImagePicker()
@@ -103,8 +104,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         selectFirstImageButton = addPhotoRightBottomForLayout2X2Button[0]
         selectSecondImageButton = anyAddPhotoRightButtons[1]
     }
+}
    
 //MARK: - Open photo library and pick photo
+
+extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     private func openImagePicker() {
         let imagePicker =  UIImagePickerController()
@@ -119,9 +123,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
+        setStatusSwipeLabel()
     }
+}
     
 //MARK: - Transform layout images view with gesture
+
+extension ViewController {
     
     private func recognizeTheGesture() {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
@@ -169,8 +177,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             }
         }
     }
+}
     
 //MARK: - Animation of the layout images view for the share
+
+extension ViewController {
     
     private func animateLayoutViewForSwipeUpToShare() {
         let screenHeight = UIScreen.main.bounds.height
@@ -191,7 +202,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.layoutImagesView.transform = translationTransform
         })
     }
+}
+    
 //MARK: - Share layout images view with app
+
+extension ViewController {
     
     private func shareLayoutImagesView() {
         let layoutImages = UIImage(view: layoutImagesView)
@@ -206,6 +221,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         layoutImagesView.transform = .identity
     }
 }
+
 
 
 
