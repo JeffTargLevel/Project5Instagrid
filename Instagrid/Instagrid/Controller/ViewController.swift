@@ -22,11 +22,9 @@ class ViewController: UIViewController {
     @IBOutlet var addPhotoLeftBottomForLayout2X2Button: [UIButton]!
     @IBOutlet var addPhotoRightBottomForLayout2X2Button: [UIButton]!
     
-    
-    
     private var selectFirstImageButton: UIButton?
     private var selectSecondImageButton: UIButton?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -50,9 +48,9 @@ class ViewController: UIViewController {
         }
     }
 }
-    
+
 //MARK: - Select layout
-   
+
 extension ViewController {
     
     @IBAction func didTapSelectLayout1X2Button() {
@@ -70,7 +68,7 @@ extension ViewController {
         selectionLayoutImages.selectGridImagesLeftRightTopAndLeftRightBottom()
     }
 }
-    
+
 //MARK: - Add photo with button
 
 extension ViewController {
@@ -105,7 +103,7 @@ extension ViewController {
         selectSecondImageButton = anyAddPhotoRightButtons[1]
     }
 }
-   
+
 //MARK: - Open photo library and pick photo
 
 extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -126,7 +124,7 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
         setStatusSwipeLabel()
     }
 }
-    
+
 //MARK: - Transform layout images view with gesture
 
 extension ViewController {
@@ -140,7 +138,7 @@ extension ViewController {
         switch sender.state {
         case .began, .changed:
             transformLayoutImagesViewWith(gesture: sender)
-       case .ended, .cancelled:
+        case .ended, .cancelled:
             layoutImagesView.transform = .identity
         default:
             break
@@ -178,7 +176,7 @@ extension ViewController {
         }
     }
 }
-    
+
 //MARK: - Animation of the layout images view for the share
 
 extension ViewController {
@@ -203,7 +201,7 @@ extension ViewController {
         })
     }
 }
-    
+
 //MARK: - Share layout images view with app
 
 extension ViewController {
@@ -213,14 +211,18 @@ extension ViewController {
         let shareLayoutImages = UIActivityViewController(activityItems: [layoutImages], applicationActivities: nil)
         present(shareLayoutImages, animated: true, completion: nil)
     }
-    
+}
+
 //MARK: - Shake the layout images view for a bad swipe
+
+extension ViewController {
     
     private func shakeForBadSwipe() {
         layoutImagesView.shake()
         layoutImagesView.transform = .identity
     }
 }
+
 
 
 
