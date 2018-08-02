@@ -34,38 +34,43 @@ class LayoutImagesView: UIView {
         }
     }
     
+    func showLayout1Buttons(_ isInactive: Bool) {
+        addPhotoCenterTopButton.isHidden = isInactive
+        addPhotoLeftBottomButton.isHidden = isInactive
+        addPhotoRightBottomButton.isHidden = isInactive
+    }
+    
+    func showLayout2Buttons(_ isInactive: Bool) {
+        addPhotoLeftTopButton.isHidden = isInactive
+        addPhotoRightTopButton.isHidden = isInactive
+        addPhotoCenterBottomButton.isHidden = isInactive
+    }
+    
+    func showLayout3Buttons(_ isInactive: Bool) {
+        addPhotoLeftBottomForLayout2X2Button.isHidden = isInactive
+        addPhotoRightBottomForLayout2X2Button.isHidden = isInactive
+    }
+    
     func setLayout(_ styleLayout: Layout) {
         switch styleLayout {
         case .centerTopLeftBottomRightBottom:
-            addPhotoCenterTopButton.isHidden = false
-            addPhotoLeftBottomButton.isHidden = false
-            addPhotoRightBottomButton.isHidden = false
-            addPhotoLeftTopButton.isHidden = true
-            addPhotoRightTopButton.isHidden = true
-            addPhotoCenterBottomButton.isHidden = true
-            addPhotoLeftBottomForLayout2X2Button.isHidden = true
-            addPhotoRightBottomForLayout2X2Button.isHidden = true
+            showLayout1Buttons(false)
+            showLayout2Buttons(true)
+            showLayout3Buttons(true)
             
         case .leftTopRightTopCenterBottom:
-            addPhotoLeftTopButton.isHidden = false
-            addPhotoRightTopButton.isHidden = false
-            addPhotoCenterBottomButton.isHidden = false
-            addPhotoCenterTopButton.isHidden = true
-            addPhotoLeftBottomButton.isHidden = true
-            addPhotoRightBottomButton.isHidden = true
-            addPhotoLeftBottomForLayout2X2Button.isHidden = true
-            addPhotoRightBottomForLayout2X2Button.isHidden = true
+            showLayout2Buttons(false)
+            showLayout1Buttons(true)
+            showLayout3Buttons(true)
             
         case .leftRightTopAndleftRightBottom:
+            showLayout3Buttons(false)
             addPhotoLeftTopButton.isHidden = false
             addPhotoRightTopButton.isHidden = false
-            addPhotoLeftBottomForLayout2X2Button.isHidden = false
-            addPhotoRightBottomForLayout2X2Button.isHidden = false
-            addPhotoLeftBottomButton.isHidden = true
-            addPhotoRightBottomButton.isHidden = true
-            addPhotoCenterTopButton.isHidden = true
+            showLayout1Buttons(true)
             addPhotoCenterBottomButton.isHidden = true
         }
     }
 }
+
 
