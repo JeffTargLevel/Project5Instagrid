@@ -1,5 +1,5 @@
 //
-//  SelectionGridImages.swift
+//  SelectionLayout.swift
 //  Instagrid
 //
 //  Created by Jean-François Santolaria on 10/07/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectionLayoutImages: UIStackView {
+class SelectionLayout: UIStackView {
     
     @IBOutlet weak var selectLayout1X2Button: UIButton!
     @IBOutlet weak var selectLayout2X1Button: UIButton!
@@ -18,19 +18,19 @@ class SelectionLayoutImages: UIStackView {
        selectLayout2X1Button.isSelected = true
     }
     
-    func selectGridImagesCenterTopLeftBottomRightBottom() {
+    func selectLayout1X2() {
         selectLayout1X2Button.isSelected = true
         selectLayout2X1Button.isSelected = false
         selectLayout2X2Button.isSelected = false
     }
     
-    func selectGridImagesLeftTopRightTopCenterBottom() {
+    func selectLayout2X1() {
         selectLayout2X1Button.isSelected = true
         selectLayout2X2Button.isSelected = false
         selectLayout1X2Button.isSelected = false
     }
     
-    func selectGridImagesLeftRightTopAndLeftRightBottom() {
+    func selectLayout2X2() {
         selectLayout2X2Button.isSelected = true
         selectLayout1X2Button.isSelected = false
         selectLayout2X1Button.isSelected = false

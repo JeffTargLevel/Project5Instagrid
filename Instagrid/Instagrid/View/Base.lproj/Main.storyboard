@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -25,11 +22,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-Wc-Ldo" userLabel="Instagrid Logo">
-                                <rect key="frame" x="130" y="25" width="115" height="30"/>
+                                <rect key="frame" x="242.5" y="25" width="115" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="sHf-wc-T68">
                                         <variation key="heightClass=regular-widthClass=regular" constant="53"/>
@@ -46,7 +43,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇧ Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AU-58-lcT">
-                                <rect key="frame" x="36.5" y="93" width="302" height="70"/>
+                                <rect key="frame" x="149" y="-53" width="302" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Iyo-ZT-Top"/>
                                     <constraint firstAttribute="width" constant="302" id="j3w-Pg-uKJ"/>
@@ -86,10 +83,10 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="LayoutImagesView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="25" y="171" width="325" height="325"/>
+                                <rect key="frame" x="25" y="25" width="550" height="550"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-zC-Qxk" userLabel="Button Add Photo Center Top">
-                                        <rect key="frame" x="7.5" y="8" width="309" height="151"/>
+                                        <rect key="frame" x="7.5" y="8" width="534" height="261"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mDr-zC-Qxk" secondAttribute="height" multiplier="143:70" id="Exg-TO-ggG"/>
@@ -102,7 +99,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-Kc-YqC" userLabel="Button Add Photo Right Top">
-                                        <rect key="frame" x="165.5" y="8" width="151.5" height="151"/>
+                                        <rect key="frame" x="278" y="8" width="264" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="g1Y-Kc-YqC" secondAttribute="height" multiplier="1:1" id="wUI-xO-pQV"/>
@@ -116,7 +113,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUp-zN-bh4" userLabel="Button Add Photo left Top">
-                                        <rect key="frame" x="8" y="8" width="151.5" height="151"/>
+                                        <rect key="frame" x="8" y="8" width="264" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="FUp-zN-bh4" secondAttribute="height" multiplier="1:1" id="F8w-vi-ZNZ"/>
@@ -128,7 +125,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-Mv-RWu" userLabel="Button Add Photo Center Bottom">
-                                        <rect key="frame" x="8" y="165.5" width="309" height="151"/>
+                                        <rect key="frame" x="8" y="280.5" width="534" height="261"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vCW-Mv-RWu" secondAttribute="height" multiplier="143:70" id="LNs-6R-oC3"/>
@@ -141,7 +138,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
-                                        <rect key="frame" x="8" y="166" width="151.5" height="151"/>
+                                        <rect key="frame" x="8" y="278.5" width="264" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fQT-dH-RCf" secondAttribute="height" multiplier="1:1" id="gi6-9z-DU6"/>
@@ -154,7 +151,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-1h-prV" userLabel="Button Add Photo Right Bottom">
-                                        <rect key="frame" x="165.5" y="166" width="151.5" height="151"/>
+                                        <rect key="frame" x="278" y="278.5" width="264" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="iq2-1h-prV" secondAttribute="height" multiplier="1:1" id="mtP-ny-eSi"/>
@@ -168,7 +165,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-FZ-QDn" userLabel="Button Add Photo left Bottom for window grid">
-                                        <rect key="frame" x="8" y="166" width="151.5" height="151"/>
+                                        <rect key="frame" x="8" y="278.5" width="264" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hWa-FZ-QDn" secondAttribute="height" multiplier="1:1" id="9Cp-5p-bMH"/>
@@ -181,7 +178,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-dy-jlu" userLabel="Button Add Photo Right Bottom for window grid">
-                                        <rect key="frame" x="165.5" y="166" width="151.5" height="151"/>
+                                        <rect key="frame" x="278" y="278.5" width="264" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -242,8 +239,8 @@
                                     <outlet property="addPhotoRightTopButton" destination="g1Y-Kc-YqC" id="gxG-K9-HWK"/>
                                 </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionLayoutImages" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="47.5" y="567" width="280" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="knL-3n-iA9" userLabel="Stack View buttons select Views" customClass="SelectionLayout" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="160" y="500" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03T-Tq-ngc" userLabel="Button Select View 1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -442,7 +439,7 @@
                     </view>
                     <connections>
                         <outlet property="layoutImagesView" destination="4jv-pk-IPH" id="03f-Wl-hgP"/>
-                        <outlet property="selectionLayoutImages" destination="knL-3n-iA9" id="qZp-pb-rnK"/>
+                        <outlet property="selectionLayout" destination="knL-3n-iA9" id="qZp-pb-rnK"/>
                         <outlet property="swipeLeftToShareLabel" destination="K24-ug-ALY" id="70b-Me-qkl"/>
                         <outlet property="swipeUpToShareLabel" destination="7AU-58-lcT" id="e9h-go-irk"/>
                         <outletCollection property="anyAddPhotoCenterButtons" destination="mDr-zC-Qxk" collectionClass="NSMutableArray" id="rTo-Lv-h3Z"/>

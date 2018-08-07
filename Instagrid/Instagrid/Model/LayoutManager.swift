@@ -9,6 +9,52 @@
 import Foundation
 import UIKit
 
-class LayoutManager {
-    
+struct LayoutManager {
+    var type: LayoutType
+    var images: [UIImage]
+  
+    var isReadyForShare: Bool {
+        return images.count >= type.imageNeeded
+        
+    }
 }
+
+extension LayoutManager {
+    enum LayoutType {
+        case onePerTwo
+        case twoPerOne
+        case twoPerTwo
+        
+        
+        var imageNeeded: Int {
+            switch self {
+            case .twoPerTwo:
+                return 4
+            default:
+                return 3
+            }
+        }
+    }
+}
+
+extension LayoutManager {
+    mutating func toImage() {
+        let addImage = UIImage()
+        
+        if addImage != #imageLiteral(resourceName: "AddPhotoPortrait") {
+        images.append(addImage)
+        }
+        
+    }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+

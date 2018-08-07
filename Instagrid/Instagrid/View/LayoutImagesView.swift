@@ -1,5 +1,5 @@
 //
-//  CustomImagesView.swift
+//  LayoutImagesView.swift
 //  Instagrid
 //
 //  Created by Jean-François Santolaria on 05/07/2018.
@@ -19,11 +19,6 @@ class LayoutImagesView: UIView {
     @IBOutlet private var addPhotoLeftBottomForLayout2X2Button: UIButton!
     @IBOutlet private var addPhotoRightBottomForLayout2X2Button: UIButton!
     
-    var isReadyForTheShare: Bool {
-        
-        return addPhotoCenterTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoCenterBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightBottomButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") || addPhotoLeftTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightTopButton.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoLeftBottomForLayout2X2Button.currentImage != #imageLiteral(resourceName: "AddPhotoPortrait") && addPhotoRightBottomForLayout2X2Button != #imageLiteral(resourceName: "AddPhotoPortrait")
-    }
-    
     enum Layout {
         case centerTopLeftBottomRightBottom, leftTopRightTopCenterBottom, leftRightTopAndleftRightBottom
     }
@@ -34,19 +29,19 @@ class LayoutImagesView: UIView {
         }
     }
     
-    func showLayout1Buttons(_ isInactive: Bool) {
+    func showLayout1X2Buttons(_ isInactive: Bool) {
         addPhotoCenterTopButton.isHidden = isInactive
         addPhotoLeftBottomButton.isHidden = isInactive
         addPhotoRightBottomButton.isHidden = isInactive
     }
     
-    func showLayout2Buttons(_ isInactive: Bool) {
+    func showLayout2X1Buttons(_ isInactive: Bool) {
         addPhotoLeftTopButton.isHidden = isInactive
         addPhotoRightTopButton.isHidden = isInactive
         addPhotoCenterBottomButton.isHidden = isInactive
     }
     
-    func showLayout3Buttons(_ isInactive: Bool) {
+    func showLayout2X2Buttons(_ isInactive: Bool) {
         addPhotoLeftBottomForLayout2X2Button.isHidden = isInactive
         addPhotoRightBottomForLayout2X2Button.isHidden = isInactive
     }
@@ -54,20 +49,20 @@ class LayoutImagesView: UIView {
     func setLayout(_ styleLayout: Layout) {
         switch styleLayout {
         case .centerTopLeftBottomRightBottom:
-            showLayout1Buttons(false)
-            showLayout2Buttons(true)
-            showLayout3Buttons(true)
+            showLayout1X2Buttons(false)
+            showLayout2X1Buttons(true)
+            showLayout2X2Buttons(true)
             
         case .leftTopRightTopCenterBottom:
-            showLayout2Buttons(false)
-            showLayout1Buttons(true)
-            showLayout3Buttons(true)
+            showLayout2X1Buttons(false)
+            showLayout1X2Buttons(true)
+            showLayout2X2Buttons(true)
             
         case .leftRightTopAndleftRightBottom:
-            showLayout3Buttons(false)
+            showLayout2X2Buttons(false)
             addPhotoLeftTopButton.isHidden = false
             addPhotoRightTopButton.isHidden = false
-            showLayout1Buttons(true)
+            showLayout1X2Buttons(true)
             addPhotoCenterBottomButton.isHidden = true
         }
     }

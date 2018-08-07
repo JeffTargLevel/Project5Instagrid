@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var layoutImagesView: LayoutImagesView!
-    @IBOutlet weak var selectionLayoutImages: SelectionLayoutImages!
+    @IBOutlet weak var selectionLayout: SelectionLayout!
     
     @IBOutlet weak var swipeUpToShareLabel: UILabel!
     @IBOutlet weak var swipeLeftToShareLabel: UILabel!
@@ -25,6 +25,10 @@ class ViewController: UIViewController {
     private var selectFirstImageButton: UIButton?
     private var selectSecondImageButton: UIButton?
     
+    
+    
+    var layoutManager = LayoutManager(type: .onePerTwo, images: [])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -34,12 +38,12 @@ class ViewController: UIViewController {
     
     private func setupUI() {
         layoutImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
-        selectionLayoutImages.showTheSelectedButtonAtStartup()
+        selectionLayout.showTheSelectedButtonAtStartup()
     }
     
     private func setStatusSwipeLabel() {
         
-        if !layoutImagesView.isReadyForTheShare {
+        if !layoutManager.isReadyForShare {
             swipeUpToShareLabel.text = "Add your photos"
             swipeLeftToShareLabel.text = "Add your photos"
         } else {
@@ -55,17 +59,20 @@ extension ViewController {
     
     @IBAction func didTapSelectLayout1X2Button() {
         layoutImagesView.setLayout(.centerTopLeftBottomRightBottom)
-        selectionLayoutImages.selectGridImagesCenterTopLeftBottomRightBottom()
+        selectionLayout.selectLayout1X2()
+        layoutManager.type = .onePerTwo
     }
     
     @IBAction func didTapSelectLayout2X1Button() {
         layoutImagesView.setLayout(.leftTopRightTopCenterBottom)
-        selectionLayoutImages.selectGridImagesLeftTopRightTopCenterBottom()
+        selectionLayout.selectLayout2X1()
+        layoutManager.type = .twoPerOne
     }
     
     @IBAction func didTapSelectLayout2X2Button() {
         layoutImagesView.setLayout(.leftRightTopAndleftRightBottom)
-        selectionLayoutImages.selectGridImagesLeftRightTopAndLeftRightBottom()
+        selectionLayout.selectLayout2X2()
+        layoutManager.type = .twoPerTwo
     }
 }
 
@@ -121,6 +128,7 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
+        layoutManager.toImage()
         setStatusSwipeLabel()
     }
 }
@@ -154,10 +162,10 @@ extension ViewController {
             layoutImagesView.transform = transform
             
             
-            if translation.y < -70 && layoutImagesView.isReadyForTheShare {
+            if translation.y < -70 && layoutManager.isReadyForShare {
                 animateLayoutViewForSwipeUpToShare()
                 shareLayoutImagesView()
-            } else if translation.y > 0 || !layoutImagesView.isReadyForTheShare {
+            } else if translation.y > 0 || !layoutManager.isReadyForShare {
                 shakeForBadSwipe()
             }
         }
@@ -167,10 +175,10 @@ extension ViewController {
             let transform = translationTransform
             layoutImagesView.transform = transform
             
-            if translation.x < -180 && layoutImagesView.isReadyForTheShare {
+            if translation.x < -180 && layoutManager.isReadyForShare {
                 animateLayoutViewForSwipeLeftToShare()
                 shareLayoutImagesView()
-            } else if translation.x > 0 || !layoutImagesView.isReadyForTheShare {
+            } else if translation.x > 0 || !layoutManager.isReadyForShare {
                 shakeForBadSwipe()
             }
         }
@@ -222,6 +230,7 @@ extension ViewController {
         layoutImagesView.transform = .identity
     }
 }
+
 
 
 
