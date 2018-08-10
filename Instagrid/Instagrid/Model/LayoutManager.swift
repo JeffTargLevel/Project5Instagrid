@@ -11,11 +11,15 @@ import UIKit
 
 struct LayoutManager {
     var type: LayoutType
-    var images: [UIImage]
-  
-    var isReadyForShare: Bool {
-        return images.count >= type.imageNeeded
-        
+    var layoutOneAndTwoImages: [UIImage]
+    var layout3Images: [UIImage]
+    
+    var layoutOneAndTwoAreReadyForShare: Bool {
+        return layoutOneAndTwoImages.count >= type.imageNeeded
+    }
+    
+    var layout3IsReadyForShare: Bool {
+        return layout3Images.count >= type.imageNeeded
     }
 }
 
@@ -24,7 +28,6 @@ extension LayoutManager {
         case onePerTwo
         case twoPerOne
         case twoPerTwo
-        
         
         var imageNeeded: Int {
             switch self {
@@ -38,23 +41,28 @@ extension LayoutManager {
 }
 
 extension LayoutManager {
-    mutating func toImage() {
-        let addImage = UIImage()
+    
+    func currentImageOfButtonIs(_ imageButton: UIButton?) -> Bool {
+        return imageButton?.currentImage == #imageLiteral(resourceName: "AddPhotoPortrait")
+    }
+    
+    mutating func toImage(_ image: UIImage) {
         
-        if addImage != #imageLiteral(resourceName: "AddPhotoPortrait") {
-        images.append(addImage)
+        if type == .onePerTwo || type == .twoPerOne {
+            layoutOneAndTwoImages.append(image)
+            print("Add \(image)")
+        } else if type == .twoPerTwo {
+            layout3Images.append(image)
+            print("add other \(image)")
         }
-        
     }
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 

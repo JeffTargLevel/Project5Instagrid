@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     
     
-    var layoutManager = LayoutManager(type: .onePerTwo, images: [])
+    var layoutManager = LayoutManager(type: .twoPerOne, layoutOneAndTwoImages: [], layout3Images: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,16 +39,16 @@ class ViewController: UIViewController {
     private func setupUI() {
         layoutImagesView.setLayoutStandard = .leftTopRightTopCenterBottom
         selectionLayout.showTheSelectedButtonAtStartup()
+        layoutManager.type = .twoPerOne
     }
     
     private func setStatusSwipeLabel() {
-        
-        if !layoutManager.isReadyForShare {
-            swipeUpToShareLabel.text = "Add your photos"
-            swipeLeftToShareLabel.text = "Add your photos"
-        } else {
+        if layoutManager.layoutOneAndTwoAreReadyForShare || layoutManager.layout3IsReadyForShare {
             swipeUpToShareLabel.text = "⇧\nSwipe up to share"
             swipeLeftToShareLabel.text = "⇦\nSwipe left to share"
+        } else {
+            swipeUpToShareLabel.text = "Add your photos"
+            swipeLeftToShareLabel.text = "Add your photos"
         }
     }
 }
@@ -61,18 +61,21 @@ extension ViewController {
         layoutImagesView.setLayout(.centerTopLeftBottomRightBottom)
         selectionLayout.selectLayout1X2()
         layoutManager.type = .onePerTwo
+        setStatusSwipeLabel()
     }
     
     @IBAction func didTapSelectLayout2X1Button() {
         layoutImagesView.setLayout(.leftTopRightTopCenterBottom)
         selectionLayout.selectLayout2X1()
         layoutManager.type = .twoPerOne
+        setStatusSwipeLabel()
     }
     
     @IBAction func didTapSelectLayout2X2Button() {
         layoutImagesView.setLayout(.leftRightTopAndleftRightBottom)
         selectionLayout.selectLayout2X2()
         layoutManager.type = .twoPerTwo
+        setStatusSwipeLabel()
     }
 }
 
@@ -123,12 +126,18 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
     }
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if layoutManager.currentImageOfButtonIs(selectFirstImageButton){
+            let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
             selectFirstImageButton?.setImage(pickedImage, for: .normal)
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
+            layoutManager.toImage(pickedImage!)
+        } else {
+            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                selectFirstImageButton?.setImage(pickedImage, for: .normal)
+                selectSecondImageButton?.setImage(pickedImage, for: .normal)
+            }
         }
         picker.dismiss(animated: true, completion: nil)
-        layoutManager.toImage()
         setStatusSwipeLabel()
     }
 }
@@ -162,10 +171,10 @@ extension ViewController {
             layoutImagesView.transform = transform
             
             
-            if translation.y < -70 && layoutManager.isReadyForShare {
+            if translation.y < -70 && (layoutManager.layoutOneAndTwoAreReadyForShare || layoutManager.layout3IsReadyForShare) {
                 animateLayoutViewForSwipeUpToShare()
                 shareLayoutImagesView()
-            } else if translation.y > 0 || !layoutManager.isReadyForShare {
+            } else if translation.y > 0 || (!layoutManager.layoutOneAndTwoAreReadyForShare && !layoutManager.layout3IsReadyForShare) {
                 shakeForBadSwipe()
             }
         }
@@ -175,10 +184,10 @@ extension ViewController {
             let transform = translationTransform
             layoutImagesView.transform = transform
             
-            if translation.x < -180 && layoutManager.isReadyForShare {
+            if translation.x < -180 && (layoutManager.layoutOneAndTwoAreReadyForShare || layoutManager.layout3IsReadyForShare) {
                 animateLayoutViewForSwipeLeftToShare()
                 shareLayoutImagesView()
-            } else if translation.x > 0 || !layoutManager.isReadyForShare {
+            } else if translation.x > 0 || (!layoutManager.layoutOneAndTwoAreReadyForShare && !layoutManager.layout3IsReadyForShare) {
                 shakeForBadSwipe()
             }
         }
