@@ -25,9 +25,7 @@ class ViewController: UIViewController {
     private var selectFirstImageButton: UIButton?
     private var selectSecondImageButton: UIButton?
     
-    
-    
-    var layoutManager = LayoutManager(type: .twoPerOne, layoutOneAndTwoImages: [], layout3Images: [])
+    private var layoutManager = LayoutManager(type: .twoPerOne, listImages: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +41,7 @@ class ViewController: UIViewController {
     }
     
     private func setStatusSwipeLabel() {
-        if layoutManager.layoutOneAndTwoAreReadyForShare || layoutManager.layout3IsReadyForShare {
+        if layoutManager.isReadyForShare {
             swipeUpToShareLabel.text = "⇧\nSwipe up to share"
             swipeLeftToShareLabel.text = "⇦\nSwipe left to share"
         } else {
@@ -126,17 +124,16 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
     }
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if layoutManager.currentImageOfButtonIs(selectFirstImageButton){
+        if layoutManager.currentImageOfButtonIs(selectFirstImageButton) {
             let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
             selectFirstImageButton?.setImage(pickedImage, for: .normal)
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
             layoutManager.toImage(pickedImage!)
-        } else {
-            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        } else if !layoutManager.currentImageOfButtonIs(selectFirstImageButton) {
+            let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
                 selectFirstImageButton?.setImage(pickedImage, for: .normal)
                 selectSecondImageButton?.setImage(pickedImage, for: .normal)
             }
-        }
         picker.dismiss(animated: true, completion: nil)
         setStatusSwipeLabel()
     }
@@ -171,10 +168,10 @@ extension ViewController {
             layoutImagesView.transform = transform
             
             
-            if translation.y < -70 && (layoutManager.layoutOneAndTwoAreReadyForShare || layoutManager.layout3IsReadyForShare) {
+            if translation.y < -70 && layoutManager.isReadyForShare {
                 animateLayoutViewForSwipeUpToShare()
                 shareLayoutImagesView()
-            } else if translation.y > 0 || (!layoutManager.layoutOneAndTwoAreReadyForShare && !layoutManager.layout3IsReadyForShare) {
+            } else if translation.y > 0 || !layoutManager.isReadyForShare {
                 shakeForBadSwipe()
             }
         }
@@ -184,10 +181,10 @@ extension ViewController {
             let transform = translationTransform
             layoutImagesView.transform = transform
             
-            if translation.x < -180 && (layoutManager.layoutOneAndTwoAreReadyForShare || layoutManager.layout3IsReadyForShare) {
+            if translation.x < -180 && layoutManager.isReadyForShare  {
                 animateLayoutViewForSwipeLeftToShare()
                 shareLayoutImagesView()
-            } else if translation.x > 0 || (!layoutManager.layoutOneAndTwoAreReadyForShare && !layoutManager.layout3IsReadyForShare) {
+            } else if translation.x > 0 || !layoutManager.isReadyForShare {
                 shakeForBadSwipe()
             }
         }

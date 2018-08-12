@@ -11,15 +11,10 @@ import UIKit
 
 struct LayoutManager {
     var type: LayoutType
-    var layoutOneAndTwoImages: [UIImage]
-    var layout3Images: [UIImage]
+    var listImages: [UIImage]
     
-    var layoutOneAndTwoAreReadyForShare: Bool {
-        return layoutOneAndTwoImages.count >= type.imageNeeded
-    }
-    
-    var layout3IsReadyForShare: Bool {
-        return layout3Images.count >= type.imageNeeded
+    var isReadyForShare: Bool {
+        return listImages.count >= type.imageNeeded
     }
 }
 
@@ -47,14 +42,7 @@ extension LayoutManager {
     }
     
     mutating func toImage(_ image: UIImage) {
-        
-        if type == .onePerTwo || type == .twoPerOne {
-            layoutOneAndTwoImages.append(image)
-            print("Add \(image)")
-        } else if type == .twoPerTwo {
-            layout3Images.append(image)
-            print("add other \(image)")
-        }
+            listImages.append(image)
     }
 }
 
