@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     private var selectFirstImageButton: UIButton?
     private var selectSecondImageButton: UIButton?
+    private var selectThirdImageButton: UIButton?
     
     private var layoutManager = LayoutManager(type: .twoPerOne, listImages: [])
     
@@ -85,6 +86,7 @@ extension ViewController {
         openImagePicker()
         selectFirstImageButton = anyAddPhotoCenterButtons[0]
         selectSecondImageButton = anyAddPhotoCenterButtons[1]
+        selectThirdImageButton = addPhotoLeftBottomForLayout2X2Button[0]
     }
     
     @IBAction func didTapAnyAddPhotoRightButtons() {
@@ -102,13 +104,17 @@ extension ViewController {
     @IBAction func didTapAddPhotoLeftBottomForLayout2X2Button() {
         openImagePicker()
         selectFirstImageButton = addPhotoLeftBottomForLayout2X2Button[0]
-        selectSecondImageButton = anyAddPhotoLeftButtons[1]
+        selectSecondImageButton = anyAddPhotoCenterButtons[0]
+        selectThirdImageButton = anyAddPhotoCenterButtons[1]
+        
     }
     
     @IBAction func didTapAddPhotoRightBottomForLayout2X2Button() {
         openImagePicker()
         selectFirstImageButton = addPhotoRightBottomForLayout2X2Button[0]
-        selectSecondImageButton = anyAddPhotoRightButtons[1]
+        selectSecondImageButton = anyAddPhotoCenterButtons[0]
+        selectThirdImageButton = anyAddPhotoCenterButtons[1]
+        
     }
 }
 
@@ -128,12 +134,14 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
             let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
             selectFirstImageButton?.setImage(pickedImage, for: .normal)
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
+            selectThirdImageButton?.setImage(pickedImage, for: .normal)
             layoutManager.toImage(pickedImage!)
         } else if !layoutManager.currentImageOfButtonIs(selectFirstImageButton) {
             let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
                 selectFirstImageButton?.setImage(pickedImage, for: .normal)
                 selectSecondImageButton?.setImage(pickedImage, for: .normal)
-            }
+                selectThirdImageButton?.setImage(pickedImage, for: .normal)
+        }
         picker.dismiss(animated: true, completion: nil)
         setStatusSwipeLabel()
     }
