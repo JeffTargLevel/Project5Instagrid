@@ -5,7 +5,7 @@
 //  Created by Jean-François Santolaria on 26/06/2018.
 //  Copyright © 2018 OpenClassroomsFRSantolariaJF. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class ViewController: UIViewController {
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     private var selectSecondImageButton: UIButton?
     private var selectThirdImageButton: UIButton?
     
-    private var layoutManager = LayoutManager(type: .twoPerOne, listImages: [])
+    private var layoutManager = LayoutManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +106,6 @@ extension ViewController {
         selectFirstImageButton = addPhotoLeftBottomForLayout2X2Button[0]
         selectSecondImageButton = anyAddPhotoCenterButtons[0]
         selectThirdImageButton = anyAddPhotoCenterButtons[1]
-        
     }
     
     @IBAction func didTapAddPhotoRightBottomForLayout2X2Button() {
@@ -114,7 +113,6 @@ extension ViewController {
         selectFirstImageButton = addPhotoRightBottomForLayout2X2Button[0]
         selectSecondImageButton = anyAddPhotoCenterButtons[0]
         selectThirdImageButton = anyAddPhotoCenterButtons[1]
-        
     }
 }
 
@@ -138,9 +136,9 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
             layoutManager.toImage(pickedImage!)
         } else if !layoutManager.currentImageOfButtonIs(selectFirstImageButton) {
             let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-                selectFirstImageButton?.setImage(pickedImage, for: .normal)
-                selectSecondImageButton?.setImage(pickedImage, for: .normal)
-                selectThirdImageButton?.setImage(pickedImage, for: .normal)
+            selectFirstImageButton?.setImage(pickedImage, for: .normal)
+            selectSecondImageButton?.setImage(pickedImage, for: .normal)
+            selectThirdImageButton?.setImage(pickedImage, for: .normal)
         }
         picker.dismiss(animated: true, completion: nil)
         setStatusSwipeLabel()
@@ -159,91 +157,20 @@ extension ViewController {
     @objc private func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
-            transformLayoutImagesViewWith(gesture: sender)
+            layoutManager.transform(layoutImagesView, withGesture: sender)
         case .ended, .cancelled:
             layoutImagesView.transform = .identity
         default:
             break
         }
     }
-    
-    private func transformLayoutImagesViewWith(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: layoutImagesView)
-        
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
-            let transform = translationTransform
-            layoutImagesView.transform = transform
-            
-            
-            if translation.y < -70 && layoutManager.isReadyForShare {
-                animateLayoutViewForSwipeUpToShare()
-                shareLayoutImagesView()
-            } else if translation.y > 0 || !layoutManager.isReadyForShare {
-                shakeForBadSwipe()
-            }
-        }
-        
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            let translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
-            let transform = translationTransform
-            layoutImagesView.transform = transform
-            
-            if translation.x < -180 && layoutManager.isReadyForShare  {
-                animateLayoutViewForSwipeLeftToShare()
-                shareLayoutImagesView()
-            } else if translation.x > 0 || !layoutManager.isReadyForShare {
-                shakeForBadSwipe()
-            }
-        }
-    }
 }
 
-//MARK: - Animation of the layout images view for the share
 
-extension ViewController {
-    
-    private func animateLayoutViewForSwipeUpToShare() {
-        let screenHeight = UIScreen.main.bounds.height
-        var translationTransform: CGAffineTransform
-        translationTransform = CGAffineTransform(translationX: 0, y: screenHeight.distance(to: -300))
-        
-        UIView.animate(withDuration: 1, animations: {
-            self.layoutImagesView.transform = translationTransform
-        })
-    }
-    
-    private func animateLayoutViewForSwipeLeftToShare() {
-        let screenWidth = UIScreen.main.bounds.width
-        var translationTransform: CGAffineTransform
-        translationTransform = CGAffineTransform(translationX: screenWidth.distance(to: 100), y: 0)
-        
-        UIView.animate(withDuration: 1, animations: {
-            self.layoutImagesView.transform = translationTransform
-        })
-    }
-}
 
-//MARK: - Share layout images view with app
 
-extension ViewController {
-    
-    private func shareLayoutImagesView() {
-        let layoutImages = UIImage(view: layoutImagesView)
-        let shareLayoutImages = UIActivityViewController(activityItems: [layoutImages], applicationActivities: nil)
-        present(shareLayoutImages, animated: true, completion: nil)
-    }
-}
 
-//MARK: - Shake the layout images view for a bad swipe
 
-extension ViewController {
-    
-    private func shakeForBadSwipe() {
-        layoutImagesView.shake()
-        layoutImagesView.transform = .identity
-    }
-}
 
 
 
