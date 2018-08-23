@@ -119,7 +119,7 @@ extension LayoutManager {
 //MARK: - Share layout images
     
     private func shareLayoutImagesView(_ view: UIView) {
-        let viewController = ViewController()
+        let viewController: UIViewController = ViewController()
         let layoutImages = UIImage(view: view)
         let shareLayoutImages = UIActivityViewController(activityItems: [layoutImages], applicationActivities: nil)
         viewController.present(shareLayoutImages, animated: true, completion: nil)

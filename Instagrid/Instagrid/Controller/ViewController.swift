@@ -150,11 +150,11 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
 extension ViewController {
     
     private func recognizeTheGesture() {
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragGridImagesView(_:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragLayoutImagesView(_:)))
         layoutImagesView.addGestureRecognizer(panGestureRecognizer)
     }
     
-    @objc private func dragGridImagesView(_ sender: UIPanGestureRecognizer) {
+    @objc private func dragLayoutImagesView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
             layoutManager.transform(layoutImagesView, withGesture: sender)
