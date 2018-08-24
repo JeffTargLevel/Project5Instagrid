@@ -133,7 +133,7 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
             selectFirstImageButton?.setImage(pickedImage, for: .normal)
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
             selectThirdImageButton?.setImage(pickedImage, for: .normal)
-            layoutManager.toImage(pickedImage!)
+            layoutManager.listImages.append(pickedImage!)
         } else if !layoutManager.currentImageOfButtonIs(selectFirstImageButton) {
             let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
             selectFirstImageButton?.setImage(pickedImage, for: .normal)
@@ -149,6 +149,36 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
 
 extension ViewController {
     
+    private func transformLayoutImagesView(_ withGesture: UIPanGestureRecognizer) {
+        let translation = withGesture.translation(in: layoutImagesView)
+        
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
+            let transform = translationTransform
+            layoutImagesView.transform = transform
+            
+            if translation.y < -70 && layoutManager.isReadyForShare {
+                animateLayoutViewForSwipeUpToShare()
+                shareLayoutImagesView()
+            } else if translation.y > 0 || !layoutManager.isReadyForShare {
+                shakeForBadSwipe()
+            }
+        }
+        
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            let translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
+            let transform = translationTransform
+            layoutImagesView.transform = transform
+            
+            if translation.x < -180 && layoutManager.isReadyForShare  {
+                animateLayoutViewForSwipeLeftToShare()
+                shareLayoutImagesView()
+            } else if translation.x > 0 || !layoutManager.isReadyForShare {
+                shakeForBadSwipe()
+            }
+        }
+    }
+    
     private func recognizeTheGesture() {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragLayoutImagesView(_:)))
         layoutImagesView.addGestureRecognizer(panGestureRecognizer)
@@ -157,7 +187,7 @@ extension ViewController {
     @objc private func dragLayoutImagesView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
-            layoutManager.transform(layoutImagesView, withGesture: sender)
+            transformLayoutImagesView(sender)
         case .ended, .cancelled:
             layoutImagesView.transform = .identity
         default:
@@ -165,6 +195,49 @@ extension ViewController {
         }
     }
 }
+
+//MARK: - Animation of the layout images view for the share
+
+extension ViewController {
+    
+    private func animateLayoutViewForSwipeUpToShare() {
+        let screenHeight = UIScreen.main.bounds.height
+        var translationTransform: CGAffineTransform
+        translationTransform = CGAffineTransform(translationX: 0, y: screenHeight.distance(to: -300))
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.layoutImagesView.transform = translationTransform
+        })
+    }
+    
+    private func animateLayoutViewForSwipeLeftToShare() {
+        let screenWidth = UIScreen.main.bounds.width
+        var translationTransform: CGAffineTransform
+        translationTransform = CGAffineTransform(translationX: screenWidth.distance(to: 100), y: 0)
+        
+        UIView.animate(withDuration: 1, animations: {
+            self.layoutImagesView.transform = translationTransform
+        })
+    }
+    
+//MARK: - Shake the layout images view for a bad swipe
+    
+    private func shakeForBadSwipe() {
+        layoutImagesView.shake()
+        layoutImagesView.transform = .identity
+    }
+    
+//MARK: - Share layout images
+    
+    private func shareLayoutImagesView() {
+        let layoutImages = UIImage(view: layoutImagesView)
+        let shareLayoutImages = UIActivityViewController(activityItems: [layoutImages], applicationActivities: nil)
+        present(shareLayoutImages, animated: true, completion: nil)
+    }
+}
+
+
+
 
 
 
