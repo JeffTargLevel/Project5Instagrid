@@ -11,6 +11,7 @@
 		621FDF3320EE7CC80077F46B /* LayoutImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621FDF3220EE7CC80077F46B /* LayoutImagesView.swift */; };
 		6221E89120FE2CE500D39A0A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6221E89020FE2CE500D39A0A /* UIViewExtension.swift */; };
 		627A60AC20F4A3AD00E619E6 /* SelectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627A60AB20F4A3AD00E619E6 /* SelectionLayout.swift */; };
+		62B8AA55214FB94B00F849D4 /* UIImagePickerControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B8AA54214FB94B00F849D4 /* UIImagePickerControllerExtension.swift */; };
 		62D9EB9B20E2314500D47EF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EB9A20E2314500D47EF1 /* AppDelegate.swift */; };
 		62D9EB9D20E2314500D47EF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EB9C20E2314500D47EF1 /* ViewController.swift */; };
 		62D9EBA020E2314500D47EF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D9EB9E20E2314500D47EF1 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		621FDF3220EE7CC80077F46B /* LayoutImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutImagesView.swift; sourceTree = "<group>"; };
 		6221E89020FE2CE500D39A0A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		627A60AB20F4A3AD00E619E6 /* SelectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionLayout.swift; sourceTree = "<group>"; };
+		62B8AA54214FB94B00F849D4 /* UIImagePickerControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePickerControllerExtension.swift; sourceTree = "<group>"; };
 		62D9EB9720E2314500D47EF1 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D9EB9A20E2314500D47EF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62D9EB9C20E2314500D47EF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				6205A36A20F8F75B001DEE01 /* UIImageExtension.swift */,
 				6221E89020FE2CE500D39A0A /* UIViewExtension.swift */,
+				62B8AA54214FB94B00F849D4 /* UIImagePickerControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62D9EB9D20E2314500D47EF1 /* ViewController.swift in Sources */,
+				62B8AA55214FB94B00F849D4 /* UIImagePickerControllerExtension.swift in Sources */,
 				62F57D852111F16200B0770E /* LayoutManager.swift in Sources */,
 				62D9EB9B20E2314500D47EF1 /* AppDelegate.swift in Sources */,
 				621FDF3320EE7CC80077F46B /* LayoutImagesView.swift in Sources */,

@@ -13,7 +13,7 @@ struct LayoutManager {
     
     var type: LayoutType!
     var listImages = [UIImage]()
-    
+   
     var isReadyForShare: Bool {
         return listImages.count >= type.imageNeeded
     }
