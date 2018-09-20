@@ -127,15 +127,15 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
         present(imagePicker, animated: true, completion: nil)
     }
     
-    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if layoutManager.currentImageOfButtonIs(selectFirstImageButton) {
-            let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             selectFirstImageButton?.setImage(pickedImage, for: .normal)
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
             selectThirdImageButton?.setImage(pickedImage, for: .normal)
             layoutManager.listImages.append(pickedImage!)
         } else if !layoutManager.currentImageOfButtonIs(selectFirstImageButton) {
-            let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             selectFirstImageButton?.setImage(pickedImage, for: .normal)
             selectSecondImageButton?.setImage(pickedImage, for: .normal)
             selectThirdImageButton?.setImage(pickedImage, for: .normal)
@@ -152,7 +152,7 @@ extension ViewController {
     private func transformLayoutImagesView(_ withGesture: UIPanGestureRecognizer) {
         let translation = withGesture.translation(in: layoutImagesView)
         
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+        if UIDevice.current.orientation.isPortrait {
             let translationTransform = CGAffineTransform(translationX: 0, y: translation.y)
             let transform = translationTransform
             layoutImagesView.transform = transform
@@ -165,7 +165,7 @@ extension ViewController {
             }
         }
         
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+        if UIDevice.current.orientation.isLandscape {
             let translationTransform = CGAffineTransform(translationX: translation.x, y: 0)
             let transform = translationTransform
             layoutImagesView.transform = transform

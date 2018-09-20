@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +59,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇦ Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K24-ug-ALY">
-                                <rect key="frame" x="5" y="158.66666666666666" width="193" height="97"/>
+                                <rect key="frame" x="5" y="139" width="178" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="B7o-Xc-Rgx"/>
                                     <constraint firstAttribute="width" secondItem="K24-ug-ALY" secondAttribute="height" multiplier="149:86" id="DVm-yq-nE5"/>
@@ -88,8 +86,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-pk-IPH" userLabel="Images View" customClass="LayoutImagesView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="25" y="171" width="325" height="325"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-zC-Qxk" userLabel="Button Add Photo Center Top">
-                                        <rect key="frame" x="7.5" y="8" width="309" height="151"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-zC-Qxk" userLabel="Button Add Photo Center Top">
+                                        <rect key="frame" x="8" y="8" width="309" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mDr-zC-Qxk" secondAttribute="height" multiplier="143:70" id="Exg-TO-ggG"/>
@@ -101,7 +99,7 @@
                                             <action selector="didTapAnyAddPhotoCenterButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="DMr-JR-B0O"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-Kc-YqC" userLabel="Button Add Photo Right Top">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-Kc-YqC" userLabel="Button Add Photo Right Top">
                                         <rect key="frame" x="165.5" y="8" width="151.5" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -115,7 +113,7 @@
                                             <action selector="didTapAnyAddPhotoRightButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="Juf-W0-Xv6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUp-zN-bh4" userLabel="Button Add Photo left Top">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUp-zN-bh4" userLabel="Button Add Photo left Top">
                                         <rect key="frame" x="8" y="8" width="151.5" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -127,8 +125,8 @@
                                             <action selector="didTapAnyAddPhotoLeftButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="sb6-Ql-e3O"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-Mv-RWu" userLabel="Button Add Photo Center Bottom">
-                                        <rect key="frame" x="8" y="165.5" width="309" height="151"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-Mv-RWu" userLabel="Button Add Photo Center Bottom">
+                                        <rect key="frame" x="8" y="165.5" width="309" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vCW-Mv-RWu" secondAttribute="height" multiplier="143:70" id="LNs-6R-oC3"/>
@@ -140,7 +138,7 @@
                                             <action selector="didTapAnyAddPhotoCenterButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2z-af-PFC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-dH-RCf" userLabel="Button Add Photo left Bottom">
                                         <rect key="frame" x="8" y="165.5" width="151.5" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -153,7 +151,7 @@
                                             <action selector="didTapAnyAddPhotoLeftButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tF-9k-Xwk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-1h-prV" userLabel="Button Add Photo Right Bottom">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-1h-prV" userLabel="Button Add Photo Right Bottom">
                                         <rect key="frame" x="165.5" y="165.5" width="151.5" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -167,7 +165,7 @@
                                             <action selector="didTapAnyAddPhotoRightButtons" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mcs-hn-fpr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-FZ-QDn" userLabel="Button Add Photo left Bottom for window grid">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-FZ-QDn" userLabel="Button Add Photo left Bottom for window grid">
                                         <rect key="frame" x="8" y="165.5" width="151.5" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -180,7 +178,7 @@
                                             <action selector="didTapAddPhotoLeftBottomForLayout2X2Button" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEy-GD-C4D"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-dy-jlu" userLabel="Button Add Photo Right Bottom for window grid">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-dy-jlu" userLabel="Button Add Photo Right Bottom for window grid">
                                         <rect key="frame" x="165.5" y="165.5" width="151.5" height="151.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
@@ -356,6 +354,13 @@
                                 <exclude reference="gsq-iC-HcK"/>
                                 <exclude reference="sgz-Ez-6Fy"/>
                                 <exclude reference="zdc-lS-eCt"/>
+                                <exclude reference="83a-0g-lKW"/>
+                                <exclude reference="NWN-ak-Guc"/>
+                                <exclude reference="TtP-N9-IYb"/>
+                                <exclude reference="XEO-pw-RmS"/>
+                                <exclude reference="f1O-B9-3jg"/>
+                                <exclude reference="wat-h0-lRA"/>
+                                <exclude reference="zBq-va-VSR"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <exclude reference="PAs-ej-rq8"/>
                                 <exclude reference="bx6-ST-bMn"/>
@@ -364,13 +369,6 @@
                                 <exclude reference="wek-F5-HuN"/>
                                 <exclude reference="Sph-hZ-FlR"/>
                                 <exclude reference="dkx-Cb-wCO"/>
-                                <exclude reference="83a-0g-lKW"/>
-                                <exclude reference="NWN-ak-Guc"/>
-                                <exclude reference="TtP-N9-IYb"/>
-                                <exclude reference="XEO-pw-RmS"/>
-                                <exclude reference="f1O-B9-3jg"/>
-                                <exclude reference="wat-h0-lRA"/>
-                                <exclude reference="zBq-va-VSR"/>
                                 <exclude reference="55Y-DP-4L4"/>
                                 <exclude reference="6Yo-rJ-LOq"/>
                                 <exclude reference="K62-W2-ae7"/>
@@ -395,14 +393,14 @@
                                 <include reference="ZSm-Z4-KZr"/>
                                 <exclude reference="sGa-1f-Unq"/>
                                 <exclude reference="zdc-lS-eCt"/>
-                                <exclude reference="DfI-mo-Qf6"/>
-                                <exclude reference="9ac-C6-RVE"/>
-                                <include reference="Sph-hZ-FlR"/>
                                 <exclude reference="CbE-Sa-R1I"/>
                                 <include reference="NWN-ak-Guc"/>
                                 <include reference="XEO-pw-RmS"/>
                                 <exclude reference="f1O-B9-3jg"/>
                                 <include reference="zBq-va-VSR"/>
+                                <exclude reference="DfI-mo-Qf6"/>
+                                <exclude reference="9ac-C6-RVE"/>
+                                <include reference="Sph-hZ-FlR"/>
                                 <include reference="6Yo-rJ-LOq"/>
                                 <exclude reference="Ru4-En-hlG"/>
                                 <exclude reference="SMS-cD-bki"/>
@@ -415,11 +413,21 @@
                                 <exclude reference="Axy-ul-72t"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="Axy-ul-72t"/>
+                            </mask>
+                        </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
                                 <exclude reference="OFJ-IT-ndE"/>
                                 <exclude reference="gsq-iC-HcK"/>
                                 <exclude reference="sgz-Ez-6Fy"/>
+                                <exclude reference="83a-0g-lKW"/>
+                                <exclude reference="CbE-Sa-R1I"/>
+                                <exclude reference="Nfa-ft-ZrM"/>
+                                <include reference="TtP-N9-IYb"/>
+                                <exclude reference="wat-h0-lRA"/>
                                 <exclude reference="4BH-Do-yoi"/>
                                 <include reference="PAs-ej-rq8"/>
                                 <exclude reference="bx6-ST-bMn"/>
@@ -427,11 +435,6 @@
                                 <include reference="wek-F5-HuN"/>
                                 <exclude reference="9ac-C6-RVE"/>
                                 <include reference="dkx-Cb-wCO"/>
-                                <exclude reference="83a-0g-lKW"/>
-                                <exclude reference="CbE-Sa-R1I"/>
-                                <exclude reference="Nfa-ft-ZrM"/>
-                                <include reference="TtP-N9-IYb"/>
-                                <exclude reference="wat-h0-lRA"/>
                                 <include reference="55Y-DP-4L4"/>
                                 <include reference="K62-W2-ae7"/>
                                 <exclude reference="cUF-II-GzF"/>

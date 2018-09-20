@@ -39,7 +39,7 @@ extension LayoutManager {
 //MARK: - Current image of button before to add the image in listImages
     
     func currentImageOfButtonIs(_ imageButton: UIButton?) -> Bool {
-        return imageButton?.currentImage == #imageLiteral(resourceName: "AddPhotoPortrait")
+        return imageButton?.currentImage == UIImage(named: "AddPhotoPortrait")
     }
 }
 
