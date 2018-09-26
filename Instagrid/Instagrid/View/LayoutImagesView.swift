@@ -29,19 +29,19 @@ class LayoutImagesView: UIView {
         }
     }
     
-    func showLayout1X2Buttons(_ isInactive: Bool) {
+    private func showLayout1X2Buttons(_ isInactive: Bool) {
         addPhotoCenterTopButton.isHidden = isInactive
         addPhotoLeftBottomButton.isHidden = isInactive
         addPhotoRightBottomButton.isHidden = isInactive
     }
     
-    func showLayout2X1Buttons(_ isInactive: Bool) {
+    private func showLayout2X1Buttons(_ isInactive: Bool) {
         addPhotoLeftTopButton.isHidden = isInactive
         addPhotoRightTopButton.isHidden = isInactive
         addPhotoCenterBottomButton.isHidden = isInactive
     }
     
-    func showLayout2X2Buttons(_ isInactive: Bool) {
+    private func showLayout2X2Buttons(_ isInactive: Bool) {
         addPhotoLeftBottomForLayout2X2Button.isHidden = isInactive
         addPhotoRightBottomForLayout2X2Button.isHidden = isInactive
     }

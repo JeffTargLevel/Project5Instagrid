@@ -10,9 +10,9 @@ import UIKit
 
 class SelectionLayout: UIStackView {
     
-    @IBOutlet weak var selectLayout1X2Button: UIButton!
-    @IBOutlet weak var selectLayout2X1Button: UIButton!
-    @IBOutlet weak var selectLayout2X2Button: UIButton!
+    @IBOutlet private var selectLayout1X2Button: UIButton!
+    @IBOutlet private var selectLayout2X1Button: UIButton!
+    @IBOutlet private var selectLayout2X2Button: UIButton!
     
     func showTheSelectedButtonAtStartup() {
        selectLayout2X1Button.isSelected = true

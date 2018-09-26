@@ -10,17 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var layoutImagesView: LayoutImagesView!
-    @IBOutlet weak var selectionLayout: SelectionLayout!
+    @IBOutlet private var layoutImagesView: LayoutImagesView!
+    @IBOutlet private var selectionLayout: SelectionLayout!
     
-    @IBOutlet weak var swipeUpToShareLabel: UILabel!
-    @IBOutlet weak var swipeLeftToShareLabel: UILabel!
+    @IBOutlet private var swipeUpToShareLabel: UILabel!
+    @IBOutlet private var swipeLeftToShareLabel: UILabel!
     
-    @IBOutlet var anyAddPhotoCenterButtons: [UIButton]!
-    @IBOutlet var anyAddPhotoRightButtons: [UIButton]!
-    @IBOutlet var anyAddPhotoLeftButtons: [UIButton]!
-    @IBOutlet var addPhotoLeftBottomForLayout2X2Button: [UIButton]!
-    @IBOutlet var addPhotoRightBottomForLayout2X2Button: [UIButton]!
+    @IBOutlet private var anyAddPhotoCenterButtons: [UIButton]!
+    @IBOutlet private var anyAddPhotoRightButtons: [UIButton]!
+    @IBOutlet private var anyAddPhotoLeftButtons: [UIButton]!
+    @IBOutlet private var addPhotoLeftBottomForLayout2X2Button: [UIButton]!
+    @IBOutlet private var addPhotoRightBottomForLayout2X2Button: [UIButton]!
     
     private var selectFirstImageButton: UIButton?
     private var selectSecondImageButton: UIButton?
